@@ -201,6 +201,10 @@ header.masthead {
     background-size: cover;
 }
 
+header.masthead.resume{
+    height: 80px;
+}
+
 header.masthead .overlay {
     position: absolute;
     top: 0;

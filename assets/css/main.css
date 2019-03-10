@@ -9,6 +9,7 @@ body {
     color: #3e3e3e;
     font-family: 'Quattrocento Sans', sans-serif;
     font-weight: normal;
+    background-color: #f9f9f9;
 }
 
 p {
@@ -28,6 +29,46 @@ h5,
 h6 {
     font-weight: 800;
     font-family: 'Quattrocento', serif;
+}
+
+.header-frame {
+    height: 160px;
+    padding-bottom: 20px;
+    overflow: hidden;
+}
+
+.footer-frame{
+    height: 200px;
+}
+
+div.resume-section{
+    margin-top: 20px;
+}
+
+div.resume-section-title {
+    font-size: 1.2em;
+    font-weight: bolder
+}
+
+div.resume-date {
+    color: #006983;
+}
+
+div.resume-section-subtitle {
+    color: #3e3e3e;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+div.resume-body {
+    color: #8f8f8f;
+    font-size: 0.9em;
+}
+
+li.resume-block {
+    list-style-type: none;
+    font-family: 'Quattrocento', serif;
+    padding: 20px;
 }
 
 a {

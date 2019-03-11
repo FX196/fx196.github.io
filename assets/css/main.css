@@ -37,11 +37,11 @@ h6 {
     overflow: hidden;
 }
 
-.footer-frame{
+.footer-frame {
     height: 200px;
 }
 
-div.resume-section{
+div.resume-section {
     margin-top: 20px;
 }
 
@@ -69,6 +69,43 @@ li.resume-block {
     list-style-type: none;
     font-family: 'Quattrocento', serif;
     padding: 20px;
+}
+
+@media only screen and (max-width: 480px) {
+    h2.resume-block-title {
+        font-size: 1.2em;
+    }
+
+    div.resume-section {
+        margin-top: 20px;
+    }
+
+    div.resume-section-title {
+        font-size: 0.9em;
+        font-weight: bolder
+    }
+
+    div.resume-date {
+        font-size: 0.9em;
+        color: #006983;
+    }
+
+    div.resume-section-subtitle {
+        color: #3e3e3e;
+        font-size: 0.7em;
+        font-weight: bold;
+    }
+
+    div.resume-body {
+        color: #8f8f8f;
+        font-size: 0.7em;
+    }
+
+    li.resume-block {
+        list-style-type: none;
+        font-family: 'Quattrocento', serif;
+        padding: 20px;
+    }
 }
 
 a {

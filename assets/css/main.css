@@ -73,7 +73,7 @@ li.resume-block {
 
 @media only screen  and (min-device-width: 320px)
 and (max-device-width: 812px)
-and (-webkit-min-device-pixel-ratio: 3) {
+and (-webkit-min-device-pixel-ratio: 2) {
     h2.resume-block-title {
         font-size: 1.1em;
     }

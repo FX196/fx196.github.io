@@ -41,6 +41,10 @@ h6 {
     height: 200px;
 }
 
+div.container.resume {
+    max-width: 960px;
+}
+
 div.resume-section {
     margin-top: 20px;
 }
@@ -71,9 +75,13 @@ li.resume-block {
     padding: 20px;
 }
 
-@media only screen  and (min-device-width: 320px)
-and (max-device-width: 812px)
+@media only screen
+and (max-width: 812px)
 and (-webkit-min-device-pixel-ratio: 2) {
+    div.container.resume {
+        max-width: 810px;
+    }
+
     h2.resume-block-title {
         font-size: 1.1em;
     }

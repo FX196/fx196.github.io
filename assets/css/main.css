@@ -69,10 +69,19 @@ div.resume-body {
     font-size: 0.9em;
 }
 
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
 li.resume-block {
     list-style-type: none;
     font-family: 'Quattrocento', serif;
     padding: 20px;
+}
+
+span {
+    display: inline-block;
 }
 
 @media only screen
@@ -80,6 +89,8 @@ and (max-width: 812px)
 and (-webkit-min-device-pixel-ratio: 2) {
     div.container.resume {
         max-width: 810px;
+        padding-left: 5px;
+        padding-right: 5px;
     }
 
     h2.resume-block-title {

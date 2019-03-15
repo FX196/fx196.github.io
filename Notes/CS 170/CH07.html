@@ -40,7 +40,7 @@
 <div class="container note-section">
     <ul>
         <li class="note-block">
-            <b>Linear Programming</b>
+            <h3>Linear Programming</h3>
             <hr class="note-line">
             <ul class="note-list">
                 <li class="note-item">Maximizing or minimizing an objective function under a list of constraints</li>
@@ -53,7 +53,7 @@
                     </li>
                 </ol>
             </ul>
-            <b>Simplex Algorithm</b>
+            <h3>Simplex Algorithm</h3>
             <hr class="note-line">
             <ul class="note-list">
                 <li class="note-item">Start at a vertex, looks at neighboring vertices for a higher value</li>
@@ -67,7 +67,7 @@
                     </ul>
                 </li>
             </ul>
-            <b>Flows in Networks</b>
+            <h3>Flows in Networks</h3>
             <hr class="note-line">
             <ul class="note-list">
                 <li class="note-item">Derived algorithm (what simplex is essentially doing)</li>
@@ -106,7 +106,7 @@
                 <li class="note-item">For any flow \(f\) and any \((s,t)\)-cut \((L,R)\), size(\(f\)) \(\leq\) capacity
                     \((L,R)\)
                 </li>
-                <li class="note-item"><b class="note-inline">Max-flow min-cut theorem</b>
+                <li class="note-item"><h3 class="note-inline">Max-flow min-cut theorem</h3>
                     <i>The size of the maximum flow in the network equals the capacity of the smallest \({s,t}\)-cut</i>
                 </li>
                 <li class="note-item">
@@ -118,7 +118,8 @@
                 <li class="note-item">Number of iterations is at most \(O(|V| \cdot |E|)\) if paths are found with BFS
                     (path with fewest edges)
                 </li>
-                <li class="note-item"><b class="note-inline">Overall runtime for maximum flow:</b>\(O(|V|\cdot |E|^2)\)
+                <li class="note-item"><h3 class="note-inline">Overall runtime for maximum flow:</h3>\(O(|V|\cdot
+                    |E|^2)\)
                 </li>
                 <li class="note-item">Guarantees integrality if all edge capacities are integral. (see derived
                     algorithm)
@@ -126,7 +127,7 @@
             </ul>
         </li>
         <li>
-            <b>Bipartite Matching</b>
+            <h3>Bipartite Matching</h3>
             <hr class="note-line">
             <ul class="note-list">
                 <li class="note-item">Can be cast to max-flow</li>
@@ -136,7 +137,7 @@
             </ul>
         </li>
         <li>
-            <b>Duality</b>
+            <h3>Duality</h3>
             <hr class="note-line">
             <ul class="note-list">
                 <li class="note-item">
@@ -196,13 +197,14 @@
                     Relation between Dual and Primal: <br>
                     \(
                     \begin{array}{c}{\text { Primal LP: }} \\ {\quad \text { max } \mathbf{c}^{T} \mathbf{x}} \\
-                    {\mathbf{A} \mathbf{x} \leq \mathbf{b}} \\ {\mathbf{x} \geq 0}\end{array}
+                    {\mathbf{A} \mathbf{x} \leq \mathbf{h3}} \\ {\mathbf{x} \geq 0}\end{array}
                     \qquad
-                    \begin{array}{c}{\text { Dual LP: }} \\ {\quad \text { min } \mathbf{y}^{T} \mathbf{b}} \\
+                    \begin{array}{c}{\text { Dual LP: }} \\ {\quad \text { min } \mathbf{y}^{T} \mathbf{h3}} \\
                     {\mathbf{y}^{T} \mathbf{A} \leq \mathbf{c}^{T}} \\ {\mathbf{y} \geq 0}\end{array}
                     \)
                 </li>
-                <li><b>Duality theorem</b> <i>If a linear program has a bounded optimum, then so does its dual, and the
+                <li><h3>Duality theorem</h3> <i>If a linear program has a bounded optimum, then so does its dual, and
+                    the
                     two optimum values coincide</i></li>
                 <li>The dual of the max-flow problem is the min-cut problem</li>
             </ul>

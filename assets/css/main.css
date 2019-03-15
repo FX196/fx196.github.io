@@ -31,10 +31,18 @@ h6 {
     font-family: 'Quattrocento', serif;
 }
 
+.MathJax {
+    font-size: 20px;
+}
+
 .header-frame {
     height: 160px;
     padding-bottom: 20px;
     overflow: hidden;
+}
+
+b.note-inline {
+    font-weight: bold;
 }
 
 .footer-frame {
@@ -74,10 +82,31 @@ ul {
     list-style-type: none;
 }
 
+ul.note-list {
+    padding-left: 20px;
+    padding-bottom: 20px;
+    list-style-type: disc;
+    max-width: 960px;
+}
+
 li.resume-block {
     list-style-type: none;
     font-family: 'Quattrocento', serif;
     padding: 20px;
+}
+
+li.note-item {
+    padding: 3px;
+}
+
+hr.note-line {
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+img {
+    max-width: 80%;
+    max-height: 80%;
 }
 
 span {

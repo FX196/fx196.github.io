@@ -33,6 +33,12 @@ h6 {
 
 .MathJax {
     font-size: 20px;
+    padding: 5px;
+}
+
+.mjx-math {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .header-frame {
@@ -97,6 +103,10 @@ li.resume-block {
 
 li.note-item {
     padding: 3px;
+}
+
+li.note-block {
+
 }
 
 hr.note-line {

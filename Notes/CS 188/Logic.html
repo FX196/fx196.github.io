@@ -26,6 +26,8 @@
     <!-- Custom styles for this template -->
     <link href="../../assets/css/main.css" rel="stylesheet">
 
+    <script language="JavaScript" src="../../assets/js/cs188.js" type="text/javascript"></script>
+
 </head>
 <body>
 <!-- Header and Nav Bar -->
@@ -48,6 +50,15 @@
                 </li>
                 <li class="note-item">
                     \(A\) has a smaller "truth space"
+                </li>
+                <li class="note-item">
+                    <a href="javascript:" id="show-entailment-eg">Examples</a>
+                    <div id="entailment-eg" style="display: none">
+                        \(\alpha \wedge \beta \vDash \alpha\) <br>
+                        \(\alpha \vDash \alpha \vee \beta\) <br>
+                        \(\alpha \vDash (\beta \vee \gamma) \Longrightarrow (\alpha \vDash \beta \vee \alpha \vDash \gamma)\) is not true; <br>
+                        Counterexample: \(\beta = \alpha, \gamma = \neg\alpha\) <br>
+                    </div>
                 </li>
             </ul>
 

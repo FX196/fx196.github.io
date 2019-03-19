@@ -127,7 +127,7 @@ span {
 and (max-width: 812px)
 and (-webkit-min-device-pixel-ratio: 2) {
     .header-frame {
-        height: 0;
+        height: 80px;
     }
 
     div.container.resume {

@@ -23,6 +23,8 @@
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <script language="JavaScript" src="../../assets/js/cs188.js" type="text/javascript"></script>
+
     <!-- Custom styles for this template -->
     <link href="../../assets/css/main.css" rel="stylesheet">
 
@@ -37,6 +39,114 @@
 <div class="container note-section">
     <ul>
         <li class="note-block">
+            <h3>Constraints</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    Unary: involving 1 variable only
+                </li>
+                <li class="note-item">
+                    n-ary: involving at most n variables
+                </li>
+            </ul>
+        </li>
+        <li class="note-block">
+            <h3>Backtracking Search</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    Assign 1 variable at a time
+                </li>
+                <li class="note-item">
+                    Check constraints as you go
+                </li>
+                <li class="note-item">
+                    Return result if all constraints are satisfied, otherwise un-assign value
+                </li>
+            </ul>
+        </li>
+        <li class="note-block">
+            <h3>Filtering</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    Forward Checking: <br>
+                    Cross off values that violate a constraint when added to the existing assignment <br>
+                    i.e. enforce constraints on future values / propagates information from assigned to unassigned
+                </li>
+                <li class="note-item">
+                    Forward Checking cont. <br>
+                    When a variable is assigned, all constraints related to it are checked <br>
+                    Does not propagate information from variable to variable <br>
+                    <a href="javascript:" id="show-forward-checking-fail-eg">Example</a><br>
+                    <div id="forward-checking-fail-eg" style="display: none">
+                        <img alt="Image Cannot Be Shown"
+                             src="../../assets/img/Notes/CS188%20Foward%20Cheking%20Fail.png">
+                        <br>
+                        <a href="http://inst.eecs.berkeley.edu/~cs188/sp19/">Example where forward checking fails;
+                            Credit: CS 188</a>
+                    </div>
+                </li>
+                <li class="note-item">
+                    Arc Consistency: <br>
+                    Check consistency for all arcs between variables <br>
+                    If a variable loses a value in its domain, all its neighbors need to be checked
+                </li>
+                <li class="note-item">
+                    Arc Consistency cont. <br>
+                    Arc Consistency always removes more values than Forward Checking since it checks other arcs on top
+                    of checking the forward arc <br>
+                    Still runs inside a backtracking search
+                </li>
+                <li class="note-item">
+                    Arc consistency removes more values by checking more relationships between variables: AC checks
+                    consistency between every pair of variables, and re-checks after domain pruning, while FC only
+                    checks between
+                    assigned and unassigned variables.
+                </li>
+            </ul>
+        </li>
+        <li class="note-block">
+            <h3>Ordering</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    MRV (Minimum Remaining Values): Choose most constrained variable to assign <br>
+                    Fail-Fast
+                </li>
+                <li class="note-item">
+                    LCV (Least Constraining Value): Choose the value that rules out the fewest neighboring variables
+                    <br>
+                    Succeed-Fast
+                </li>
+            </ul>
+        </li>
+        <li class="note-block">
+            <h3>Structure</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    A Graph of \(n\) variables with domain \(d\): <br>
+                    Worst case \(O(d^n)\)
+                </li>
+                <li class="note-item">
+                    Break into \(c\) sub-graphs with \(n/c\) variables each: <br>
+                    Worst case \(O(c \cdot (d^{n/c}))\)
+                </li>
+                <li class="note-item">
+                    Tree Structured CSP: <br>
+                    Choose variables in topological ordering<br>
+                    Can be solved in \(O(nd^2)\) <br>
+                    No backtracking w/ AC.
+                </li>
+                <li class="note-item">
+                    Cut-Sets can be identified s.t. after removing the cut-set, the remaining graph is a tree <br>
+                    Instantiate a case for each of the assignments for the cut-set, then solve the remaining graph in
+                    linear time.
+                </li>
+            </ul>
+        </li>
+        <li class="note-block">
             <h3>Iterative Improvement</h3>
             <hr class="note-line">
             <ul class="note-list">
@@ -48,6 +158,22 @@
 
     </ul>
 </div>
+
+<!--
+<li class="note-block">
+            <h3>Ordering</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    MRV (Minimum Remaining Values): Choose most constrained variable
+                </li>
+            </ul>
+        </li>
+
+
+
+
+-->
 
 <!-- Footer -->
 <iframe class="footer-frame" src="../../assets/frames/footer.html"></iframe>

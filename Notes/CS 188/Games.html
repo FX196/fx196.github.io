@@ -37,11 +37,38 @@
 <div class="container note-section">
     <ul>
         <li class="note-block">
-            <h3>SECTION</h3>
+            <h3>Game Trees</h3>
             <hr class="note-line">
             <ul class="note-list">
+                <li class="note-item">
+                    Minimax: Assumes players play optimally
+                </li>
+                <li class="note-item">
+                    Expectimax: Assume opponent play randomly, value calculated is strictly larger than Minimax
+                </li>
             </ul>
-
+        <li class="note-block">
+            <h3>Pruning</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    \(\alpha\): MAX’s best option on path to root <br>
+                    \(\beta\): MIN’s best option on path to root
+                </li>
+                <li class="note-item">
+                    In the maximizer, any value that's more than \(\beta\) will be disregarded by its parent minimizer
+                    <br>
+                    When we see a \(v \geq \beta\) in MAX, we know that MAX's value will be no less than \(\beta\) and
+                    will be ignored, so no further evaluation is needed
+                </li>
+                <li class="note-item">
+                    In the minimizer, any value that's less than \(\alpha\) will be disregarded by its parent maximizer
+                    <br>
+                    When we see a \(v \leq \alpha\) in MIN, we know that MIN's value will be no more than \(\alpha\) and
+                    will be ignored, so no further evaluation is needed
+                </li>
+            </ul>
+        </li>
     </ul>
 </div>
 

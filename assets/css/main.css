@@ -41,7 +41,7 @@ h6 {
     padding-bottom: 10px;
 }
 
-.header-frame {
+#header-frame {
     height: 90px;
     padding-bottom: 20px;
     overflow: hidden;
@@ -544,14 +544,15 @@ footer .copyright {
 
 
 @media only screen
-and (max-width: 812px)
+and (max-width: 992px)
 and (-webkit-min-device-pixel-ratio: 2) {
-    .header-frame {
-        height: 160px; /* This value ensures the menu can be opened up on mobile devices*/
+    #header-frame {
+        height: 80px; /* This value ensures the menu can be opened up on mobile devices*/
     }
 
-    .masthead {
+    .masthead.general {
         height: 0;
+        display: none;
     }
 
     div.container.resume {

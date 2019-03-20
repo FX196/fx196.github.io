@@ -108,7 +108,36 @@
                     Start with \(V_0 = 0\)
                 </li>
                 <li class="note-item">
-                    Iterate on values with \(V_{k+1}(s) = \max_a \sum \limits_{s'}T(s,a,s')[R(s,a,s') + \gamma V_k(s')]\)
+                    Iterate on values with \(V_{k+1}(s) = \max_a \sum \limits_{s'}T(s,a,s')[R(s,a,s') + \gamma
+                    V_k(s')]\)
+                </li>
+            </ul>
+        </li>
+        <li class="note-block">
+            <h3>Policy Iteration</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    Start with \(V^\pi_0 = 0\)
+                </li>
+                <li class="note-item">
+                    Iteration on values for fixed policy: \(V^\pi_{k+1}(s) = \sum
+                    \limits_{s'}T(s,\pi(s),s')[R(s,\pi(s),s') + \gamma V_k(s')]\)
+                </li>
+                <li class="note-item">
+                    Finding optimal policy: <br>
+                    1. Policy evaluation; <br>
+                    2. Policy improvement
+                </li>
+                <li class="note-item">
+                    Policy evaluation: \(V^{\pi_i}_{k+1}(s) = \sum \limits_{s'} T(s, \pi_i(s), s') [R(s, \pi_i(s), s') +
+                    \gamma V^{\pi_i}_{k}(s')]\) <br>
+                    Calculate utilities for acting according to current policy
+                </li>
+                <li class="note-item">
+                    Policy update: \(\pi_{i+1}(s) = \text{argmax}_a \sum \limits_{s'} T(s, a, s') [R(s, a, s') + \gamma
+                    V^{\pi_i}(s')]\) <br>
+                    Calculate optimal action based on current values
                 </li>
             </ul>
         </li>

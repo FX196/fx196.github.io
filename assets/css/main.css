@@ -547,7 +547,12 @@ footer .copyright {
 and (max-width: 992px)
 and (-webkit-min-device-pixel-ratio: 2) {
     #header-frame {
-        height: 80px; /* This value ensures the menu can be opened up on mobile devices*/
+        height: 80px;
+    }
+
+    #mainNav{
+        background-image: url('../img/header_bg.JPG');
+        background-position: 75%, 15%;
     }
 
     .masthead.general {

@@ -550,7 +550,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
         height: 80px;
     }
 
-    #mainNav{
+    #mainNav.framed{
         background-image: url('../img/header_bg.JPG');
         background-position: 75%, 15%;
     }

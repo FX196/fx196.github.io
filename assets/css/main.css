@@ -124,55 +124,6 @@ span {
     display: inline-block;
 }
 
-@media only screen
-and (max-width: 812px)
-and (-webkit-min-device-pixel-ratio: 2) {
-    .header-frame {
-        height: 80px;
-    }
-
-    div.container.resume {
-        max-width: 810px;
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-
-    h2.resume-block-title {
-        font-size: 1.1em;
-    }
-
-    div.resume-section {
-        margin-top: 20px;
-    }
-
-    div.resume-section-title {
-        font-size: 0.9em;
-        font-weight: bolder
-    }
-
-    div.resume-date {
-        font-size: 0.9em;
-        color: #006983;
-    }
-
-    div.resume-section-subtitle {
-        color: #3e3e3e;
-        font-size: 0.7em;
-        font-weight: bold;
-    }
-
-    div.resume-body {
-        color: #8f8f8f;
-        font-size: 0.7em;
-    }
-
-    li.resume-block {
-        list-style-type: none;
-        font-family: 'Quattrocento', serif;
-        padding: 20px;
-    }
-}
-
 a {
     color: #b5b5b5;
     -webkit-transition: all 0.3s;
@@ -350,7 +301,7 @@ header.masthead {
     background-size: cover;
 }
 
-header.masthead.resume {
+header.masthead.general {
     height: 160px;
 }
 
@@ -589,4 +540,58 @@ footer .copyright {
 .btn-lg {
     font-size: 16px;
     padding: 25px 35px;
+}
+
+
+@media only screen
+and (max-width: 812px)
+and (-webkit-min-device-pixel-ratio: 2) {
+    .header-frame {
+        height: 160px; /* This value ensures the menu can be opened up on mobile devices*/
+    }
+
+    .masthead {
+        height: 0;
+    }
+
+    div.container.resume {
+        max-width: 810px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    h2.resume-block-title {
+        font-size: 1.1em;
+    }
+
+    div.resume-section {
+        margin-top: 20px;
+    }
+
+    div.resume-section-title {
+        font-size: 0.9em;
+        font-weight: bolder
+    }
+
+    div.resume-date {
+        font-size: 0.9em;
+        color: #006983;
+    }
+
+    div.resume-section-subtitle {
+        color: #3e3e3e;
+        font-size: 0.7em;
+        font-weight: bold;
+    }
+
+    div.resume-body {
+        color: #8f8f8f;
+        font-size: 0.7em;
+    }
+
+    li.resume-block {
+        list-style-type: none;
+        font-family: 'Quattrocento', serif;
+        padding: 20px;
+    }
 }

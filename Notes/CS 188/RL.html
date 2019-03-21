@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>CS 188 | RL</title>
-
+    
     <!-- Bootstrap core CSS -->
     <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+    
     <!-- Custom fonts for this template -->
     <link href="../../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
@@ -15,23 +15,23 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
           rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Quattrocento" rel="stylesheet">
-
+    
     <!-- MathJax Import -->
     <script async
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
             type="text/javascript">
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+    
     <script language="JavaScript" src="../../assets/js/main.js" type="text/javascript"></script>
-
+    
     <!-- Custom styles for this template -->
     <link href="../../assets/css/main.css" rel="stylesheet">
 
 </head>
 <body>
 <!-- Header and Nav Bar -->
-<iframe id="header-frame" scrolling="no" onclick="console.log('a')" src="../../assets/frames/header.html"></iframe>
+<iframe id="header-frame" onclick="console.log('a')" scrolling="no" src="../../assets/frames/header.html"></iframe>
 
 
 <h2 align="center" class="notes-title" style="padding-bottom: 20px">Reinforcement Learning</h2>
@@ -71,7 +71,8 @@
             <hr class="note-line">
             <ul class="note-list">
                 <li class="note-item">
-                    Instead of using \(T\) and \(R\), take actions and the actual outcomes to compute the expected outcome
+                    Instead of using \(T\) and \(R\), take actions and the actual outcomes to compute the expected
+                    outcome
                 </li>
                 <li class="note-item">
                     A method is model-free if it never uses \(T\) and \(R\)
@@ -88,9 +89,53 @@
                 <li class="note-item">
                     Does not update the policy
                 </li>
+                <li class="note-item">
+                    <b>Direct Evaluation</b>: directly add up the rewards experienced, starting from that state, and
+                    average w.r.t. episodes
+                </li>
+                <li class="note-item">
+                    Direct evaluation discards information about state transitions, calculates states independently
+                </li>
+                <li class="note-item">
+                    <b>Temporal Difference Learning</b>: <br>
+                    \(sample = R(s, \pi(s), s') + \gamma V^{\pi}(s')\) <br>
+                    \(V^{\pi}(s) = V^{\pi}(s) + \alpha (sample - V^{\pi}(s))\)
+                </li>
+                <li class="note-item">
+                    \(\alpha\) is learning rate, or how important the new information is relative to old information;
+                    <br>
+                    e.g. if \(\alpha=0\) all old information is kept, if \(\alpha = 1\) old information is completely
+                    overwritten by new information
+                </li>
             </ul>
         </li>
-
+        <li class="note-block">
+            <h3>Active Reinforcement Learning</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    Policy and values are learned
+                </li>
+                <li class="note-item">
+                    Q-Learning: sample based Q-value iteration
+                </li>
+                <li class="note-item">
+                    \(sample = R(s,a,s') + \gamma \max \limits_{a'} Q(s',a')\) <br>
+                    \(Q(s,a) = (1-\alpha)Q(s,a) + \alpha(sample)\)
+                </li>
+                <li class="note-item">
+                    \(T(s,a,s')\) is implicitly learned since the SAS pairs with higher transition probability is seen
+                    more often and hence have more weight
+                </li>
+                <li class="note-item">
+                    Q-learning converges if all state-action pairs are seen infinitely often
+                </li>
+                <li class="note-item">
+                    \(\pi(s) = \text{argmax}\ Q(s,a)\)
+                </li>
+            </ul>
+        </li>
+    
     </ul>
 </div>
 

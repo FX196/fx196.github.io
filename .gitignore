@@ -2,3 +2,5 @@ startbootstrap-clean-blog-gh-pages/
 *.xml
 .idea/
 .DS_Store
+.commit
+.gitignore

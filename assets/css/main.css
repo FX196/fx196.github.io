@@ -157,6 +157,7 @@ div.resume-body {
 iframe.p5canvas{
     width: 400px;
     height: 400px;
+    overflow: hidden;
 }
 
 ul {

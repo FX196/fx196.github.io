@@ -160,6 +160,11 @@ div.resume-body {
     font-size: 0.9em;
 }
 
+iframe.p5canvas{
+    width: 400px;
+    height: 400px;
+}
+
 ul {
     padding: 0;
     list-style-type: none;

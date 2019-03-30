@@ -24,6 +24,8 @@ function draw() {
         phase_delta = -phase_delta;
     }
     phase += phase_delta;
+    phase %= 1000;
     t += 0.01;
+    t %= 1000;
     endShape(CLOSE);
 }

@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>Yuhong Chen</title>
-
+    
     <!-- Bootstrap core CSS -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+    
     <!-- Custom fonts for this template -->
     <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
@@ -15,7 +15,17 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
           rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Quattrocento" rel="stylesheet">
-
+    
+    <!-- MathJax Import -->
+    <script async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
+            type="text/javascript">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- Custom scripts for this template -->
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    
     <!-- Custom styles for this template -->
     <link href="assets/css/main.css" rel="stylesheet">
 </head>
@@ -42,7 +52,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12 resume-section-subtitle">
-                        <span>B.A. Undeclared (Intended CS)</span><span> | GPA: 3.86/4.0 | Class of 2022</span>
+                        <span>B.A. Undeclared (Intended CS)</span> <span> | GPA: 3.86/4.0 | Class of 2022</span>
                     </div>
                 </div>
                 <div class="row">
@@ -53,7 +63,51 @@
                 </div>
             </div>
         </li>
-
+        
+        <li class="resume-block">
+            <h2 class="resume-block-title">Technical Skills</h2>
+            <hr>
+            <div class="container col-md-12" id="skills">
+                <div class="skillbar clearfix " data-percent="90%">
+                    <div class="skillbar-title" style="background: #306998;"><span>Python</span></div>
+                    <div class="skillbar-bar" style="background: #4B8BBE;"></div>
+                    <div class="skill-bar-percent">90%</div>
+                </div> <!-- End Skill Bar -->
+    
+                <div class="skillbar clearfix " data-percent="80%">
+                    <div class="skillbar-title" style="background: #e68c1e;"><span>Java</span></div>
+                    <div class="skillbar-bar" style="background: #F89820;"></div>
+                    <div class="skill-bar-percent">80%</div>
+                </div> <!-- End Skill Bar -->
+    
+                <div class="skillbar clearfix " data-percent="50%">
+                    <div class="skillbar-title" style="background: #e6cf4e;"><span>JavaScript</span></div>
+                    <div class="skillbar-bar" style="background: #F0DB4F;"></div>
+                    <div class="skill-bar-percent">50%</div>
+                </div> <!-- End Skill Bar -->
+                
+                <div class="skillbar clearfix " data-percent="60%">
+                    <div class="skillbar-title" style="background: #d35400;"><span>HTML</span></div>
+                    <div class="skillbar-bar" style="background: #d97621;"></div>
+                    <div class="skill-bar-percent">60%</div>
+                </div> <!-- End Skill Bar -->
+                
+                <div class="skillbar clearfix " data-percent="60%">
+                    <div class="skillbar-title" style="background: #2980b9;"><span>CSS3</span></div>
+                    <div class="skillbar-bar" style="background: #3498db;"></div>
+                    <div class="skill-bar-percent">60%</div>
+                </div> <!-- End Skill Bar -->
+                
+                <div class="skillbar clearfix " data-percent="40%">
+                    <div class="skillbar-title" style="background: #2c3e50;"><span>jQuery</span></div>
+                    <div class="skillbar-bar" style="background: #2c3e50;"></div>
+                    <div class="skill-bar-percent">40%</div>
+                </div> <!-- End Skill Bar -->
+                
+            </div>
+        
+        </li>
+        
         <li class="resume-block">
             <h2 class="resume-block-title">Experience</h2>
             <hr>
@@ -86,7 +140,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="container resume-section">
                 <div class="row">
                     <div class="container col-md-8 resume-section-title">
@@ -110,7 +164,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="container resume-section">
                 <div class="row">
                     <div class="container col-md-8 resume-section-title">
@@ -137,23 +191,95 @@
                     </div>
                 </div>
             </div>
-
+        
         </li>
-
+        
         <li class="resume-block">
             <h2 class="resume-block-title">Projects</h2>
             <hr>
-            Under Construction
-
+            <div class="container resume-section">
+                <div class="row">
+                    <div class="container col-md-8 resume-section-title">
+                        Clapclass.io - Study Partner Matching Platform
+                    </div>
+                    <div class="container col-md-4 resume-date" align="right">
+                        Feb. 2019
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 resume-section-subtitle">
+                        Entry for TreeHacks 2019 <br>
+                        Javascript | Firebase | JQuery
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 resume-body">
+                        Worked with Firebase to implement login features. <br>
+                        Implemented frontend logic and interface with 3 teammates. <br>
+                        Helped develop matching algorithm based on user preferences. <br>
+                        <a href="https://github.com/FX196/ClapClass" target="_blank">Github Repo</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container resume-section">
+                <div class="row">
+                    <div class="container col-md-8 resume-section-title">
+                        CSGO Major Sticker Predictions
+                    </div>
+                    <div class="container col-md-4 resume-date" align="right">
+                        Nov. 2018
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 resume-section-subtitle">
+                        Entry for CalHacks 5.0 <br>
+                        Python | Keras | Machine Learning
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 resume-body">
+                        Designed a model for Online Market Price Predictions for PC Games with 1 teammate. <br>
+                        Developed scraper for collecting market data from Steam. <br>
+                        Developed LSTM model in Keras for time series prediction with market price data. The model was
+                        able to identify the top 4 performing “stocks” based on price data and other feature data. <br>
+                        <a href="https://github.com/FX196/csgo_stickers" target="_blank">Github Repo</a>
+                    </div>
+                </div>
+            </div>
+        
         </li>
-
+        
         <li class="resume-block">
             <h2 class="resume-block-title">Activities</h2>
             <hr>
-            Under Construction
+            <div class="container resume-section">
+                <div class="row">
+                    <div class="container col-md-8 resume-section-title">
+                        Jane Street Electronic Trading Challenge (ETC)
+                    </div>
+                    <div class="container col-md-4 resume-date" align="right">
+                        Feb. 2019
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 resume-section-subtitle">
+                        Python | Backend | Data Analysis | AWS
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 resume-body">
+                        Developed trading framework that allowed for rapid implementation and testing of trading
+                        strategies. <br>
+                        Handled deployment of trading bot on AWS EC2. <br>
+                        Assisted development of qualitative trading strategies. <br>
+                        <a href="https://github.com/FX196/JSTrading" target="_blank">Github Repo</a>
+                    </div>
+                </div>
+            </div>
         </li>
     </ul>
-
+    
     <!--
     resume section template
 
@@ -189,7 +315,5 @@
 <script src="assets/vendor/jquery/jquery.min.js"></script>
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Custom scripts for this template -->
-<script src="assets/js/clean-blog.min.js"></script>
 </body>
 </html>

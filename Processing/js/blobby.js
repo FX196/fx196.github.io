@@ -4,7 +4,7 @@ let phase = 0;
 let phase_delta = 0.00001;
 
 function setup() {
-    createCanvas(400, 400);
+    createCanvas(360, 360);
 }
 
 function draw() {
@@ -15,7 +15,7 @@ function draw() {
     for (let a = 0; a < TWO_PI; a += 0.01) {
         let xOff = map(cos(a), -1, 1, 0, noiseMax);
         let yOff = map(sin(a), -1, 1, 0, noiseMax);
-        let r = map(noise(xOff, yOff, t), 0, 1, 120, 160);
+        let r = map(noise(xOff, yOff, t), 0, 1, 120*0.9, 160*0.9);
         let x = r * cos(a + phase);
         let y = r * sin(a + phase);
         vertex(x, y);

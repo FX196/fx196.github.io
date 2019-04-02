@@ -100,7 +100,7 @@
                     For any node of rank \(k\) there are at least \(2^k\) nodes in its subtree.
                 </li>
                 <li class="note-item">
-                    If there are \(n\) elements, there can be at most \(\frac{n}2^k}\) elements of rank \(k\).
+                    If there are \(n\) elements, there can be at most \(\frac{n}{2^k}\) elements of rank \(k\).
                 </li>
                 <li class="note-item">
                     Path compression: during find(x), make root the parent of all nodes on path from x to root.
@@ -115,11 +115,11 @@
                     Make each character into a node containing its frequency, heapify nodes.
                 </li>
                 <li class="note-item">
-                    Cost of tree: \(\sum \limits_{i=1}^n f_i \cdot (\text{depth of }i\text{th symbol in tree}\).
+                    Cost of tree: \(\sum \limits_{i=1}^n f_i \cdot (\text{depth of }i\text{th symbol in tree)}\).
                 </li>
                 <li class="note-item">
                     Entropy: number of bits needed to encode sequence. <br>
-                    \(\sum \limits_(i=1}^n p_i \log(\frac{1}{p_i})\)
+                    \(\sum \limits_{i=1}^n p_i \log(\frac{1}{p_i})\)
                 </li>
                 <li class="note-item">
                     more compressible = less random = more predictable
@@ -171,12 +171,12 @@
                     with \(k\) sets.
                 </li>
                 <li class="note-item">
-                    There is a set of at least \(n/k\) vertices, \(n = \)# of remaining vertices. Hence greedy leaves at
+                    There is a set of at least \(n/k\) vertices, \(n = \) number of remaining vertices. Hence greedy leaves at
                     most \(n(1-\frac{1}{k}\) vertices.
                 </li>
                 <li class="note-item">
                     Since \(1-x \leq e^{-x}\), \(n_t \leq n_0(1-\frac{1}{k})^t \leq n_0(e^{-1/k})^t = n_0e^{-t/k}\) <br>
-                    At \(t = k\ln n), \(n_t < 1\). Hence greedy uses at most \(k \ln n\) sets.
+                    At \(t = k\ln n\), \(n_t < 1\). Hence greedy uses at most \(k \ln n\) sets.
                 </li>
             </ul>
         </li>
@@ -186,7 +186,13 @@
             <hr class="note-line">
             <ul class="note-list">
                 <li class="note-item">
-                    CONTENT
+                    Label greedy solution \(A\) and optimal solution \(O\)
+                </li>
+                <li class="note-item">
+                    Compare two solutions
+                </li>
+                <li class="note-item">
+                    Change \(O\) to make it more similar to \(A\) show that the change does not make the solution worse.
                 </li>
             </ul>
         </li>

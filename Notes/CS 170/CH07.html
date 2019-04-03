@@ -115,7 +115,8 @@
                     <i>The size of the maximum flow in the network equals the capacity of the smallest \({s,t}\)-cut</i>
                 </li>
                 <li class="note-item">
-                    Min-cut \((L,R)\): \(L\) is all the nodes reachable in the residual graph \(G^f\) from \(s\) at final flow, \(R = V - L\). Any
+                    Min-cut \((L,R)\): \(L\) is all the nodes reachable in the residual graph \(G^f\) from \(s\) at
+                    final flow, \(R = V - L\). Any
                     edge from \(L\) to \(R\) must have max flow, any edge from \(R\) to \(L\) must have 0 flow.
                 </li>
                 <li class="note-item">Use residual network with derived algorithm instead</li>
@@ -147,6 +148,9 @@
             <ul class="note-list">
                 <li class="note-item">
                     Every linear maximization problem has a <i>dual</i> linear minimization problem
+                </li>
+                <li class="note-item">
+                    Variables of dual are multipliers of the inequalities of primal
                 </li>
                 <li class="note-item"><a href="javascript:" id="show-eg">Example Problem</a>
                 <li id="dual-eg" style="list-style: none; display: none">
@@ -201,11 +205,11 @@
                 <li class="note-item">
                     Relation between Dual and Primal: <br>
                     \(
-                    \begin{array}{c}{\text { Primal LP: }} \\ {\quad \text { max } \mathbf{c}^{T} \mathbf{x}} \\
-                    {\mathbf{A} \mathbf{x} \leq \mathbf{b}} \\ {\mathbf{x} \geq 0}\end{array}
+                    \begin{array}{c}{\text { Primal LP: }} \\ { \text {max } \mathbf{c}^{T} \mathbf{x}} \\
+                    {\mathbf{A} \mathbf{x} \leq \mathbf{b}} \\ {\quad\mathbf{x} \geq 0}\end{array}
                     \qquad
-                    \begin{array}{c}{\text { Dual LP: }} \\ {\quad \text { min } \mathbf{y}^{T} \mathbf{b}} \\
-                    {\mathbf{y}^{T} \mathbf{A} \leq \mathbf{c}^{T}} \\ {\mathbf{y} \geq 0}\end{array}
+                    \begin{array}{c}{\text { Dual LP: }} \\ {\text { min } \mathbf{y}^{T} \mathbf{b}} \\
+                    {\mathbf{y}^{T} \mathbf{A} \geq \mathbf{c}^{T}} \\ {\quad\mathbf{y} \geq 0}\end{array}
                     \)
                 </li>
                 <li class="note-item"><b>Duality theorem</b> <i>If a linear program has a bounded optimum, then so does

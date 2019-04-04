@@ -37,7 +37,7 @@
 
 
 <!-- Main Content -->
-<h2 align="center" class="notes-title" style="padding-bottom: 20px">Chapter 5: Greedy Algorithms</h2>
+<h2 align="center" class="notes-title" style="padding-bottom: 20px">Midterm 2 Notes</h2>
 
 <div class="container note-section">
     <ul>
@@ -127,8 +127,6 @@
                     If some character occurs with frequency more than \(\frac{2}{5}\), there is always a code of length
                     1. <br>
                     If all characters occur with frequency less than \(\frac{1}{3}\), there is no code of length 1. <br>
-                    <a href="https://inst.eecs.berkeley.edu/~cs170/fa18/assets/dis/dis05-sol.pdf">Proof from Disc 5
-                        Fa18</a>
                 </li>
             </ul>
         </li>
@@ -209,12 +207,185 @@
                 </li>
             </ul>
         </li>
-    
+        <li class="note-block">
+            <h3>Linear Programming</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">Maximizing or minimizing an objective function under a list of constraints</li>
+                <li class="note-item">Each constraint is a linear <i>in</i>equation forming a half-space</li>
+                <li class="note-item">Optimum is reached at vertices unless:</li>
+                <ol>
+                    <li class="note-item">program is <i>infeasible</i>, e.g. \(x \leq 1, x \geq 2\)</li>
+                    <li class="note-item">program is <i>unbounded</i>, i.e. it's possible to reach arbitrarily high/low
+                        values
+                    </li>
+                </ol>
+            </ul>
+            <h3>Simplex Algorithm</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">Start at a vertex, looks at neighboring vertices for a higher value</li>
+                <li class="note-item">Does <i>hill-climbing</i> on the vertices.</li>
+                <li class="note-item">Local optimality implies global optimality</li>
+                <li class="note-item" style="list-style: none">
+                    <ul>
+                        <li style="padding-left: 20px">- if all neighbours are on one side
+                            of the "profit" plane, the rest must also be on the same side
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <h3>Flows in Networks</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    Maximize flow from vertices \(s\) to \(t\) in <b>directed</b> graph \(G = (V,E)\)
+                </li>
+                <li class="note-item">Derived algorithm (what simplex is essentially doing)</li>
+                <li class="note-item" style="list-style: none">
+                    <ol>
+                        <li class="note-item">Start with 0 flow</li>
+                        <li class="note-item">Choose an appropriate path from <i>s</i> to <i>t</i>, and increase flow as
+                            much as possible along
+                            this path.
+                        </li>
+                    </ol>
+                </li>
+                <li class="note-item">
+                    Simplex allows paths to cancel existing flow
+                </li>
+                <li class="note-item">
+                    For each iteration, the \(s-t\) path has edges \((u, v)\) that:
+                </li>
+                <li class="note-item" style="list-style: none">
+                    <ol>
+                        <li class="note-item">
+                            Are in the original network, and is not at full capacity, or
+                        </li>
+                        <li class="note-item">
+                            Is the reverse of an edge \((v, u)\) in the network, and has flow along it
+                        </li>
+                    </ol>
+                </li>
+                <li class="note-item">Residual network \(G^f\)</li>
+                <li class="note-item">
+                    \(c^f = \begin{cases}
+                    c_{uv}-f_{uv} & \text{if $(u,v) \in E$ and $f_{uv} < c_{uv}$} \\
+                    f_{vu} & \text{if $(v,u) \in E$ and $f_{vu}>0$}
+                    \end{cases}\)
+                </li>
+                <li class="note-item">For any flow \(f\) and any \((s,t)\)-cut \((L,R)\), size(\(f\)) \(\leq\) capacity
+                    \((L,R)\)
+                </li>
+                <li class="note-item"><b class="note-inline">Max-flow min-cut theorem</b>
+                    <i>The size of the maximum flow in the network equals the capacity of the smallest \({s,t}\)-cut</i>
+                </li>
+                <li class="note-item">
+                    Min-cut \((L,R)\): \(L\) is all the nodes reachable in the residual graph \(G^f\) from \(s\) at
+                    final flow, \(R = V - L\). Any
+                    edge from \(L\) to \(R\) must have max flow, any edge from \(R\) to \(L\) must have 0 flow.
+                </li>
+                <li class="note-item">Use residual network with derived algorithm instead</li>
+                <li class="note-item">\(O(|E|)\) to find \(s-t\) path for each iteration.</li>
+                <li class="note-item">Number of iterations is at most \(O(|V| \cdot |E|)\) if paths are found with BFS
+                    (path with fewest edges)
+                </li>
+                <li class="note-item"><b class="note-inline">Overall runtime for maximum flow:</b>\(O(|V|\cdot
+                    |E|^2)\)
+                </li>
+                <li class="note-item">Guarantees integrality if all edge capacities are integral. (see derived
+                    algorithm)
+                </li>
+            </ul>
+        </li>
+        <li class="note-block">
+            <h3>Bipartite Matching</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">Can be cast to max-flow</li>
+                <li class="note-item">Add source node connected to one partition, sink to other;
+                    Set all capacities to 1.
+                </li>
+            </ul>
+        </li>
+        <li class="note-block">
+            <h3>Duality</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    Every linear maximization problem has a <i>dual</i> linear minimization problem
+                </li>
+                <li class="note-item">
+                    Variables of dual are multipliers of the inequalities of primal
+                </li>
+                <li id="dual-eg" style="list-style: none; display: none">
+                    <ul>
+                        <li class="note-item" style="list-style: none">
+                            \(\begin{align}
+                            \text{max } x_1 &+ 6x_2 \\
+                            x_1 &\leq 200 \\
+                            x_2 &\leq 300 \\
+                            x_1 + x_2 &\leq 400 \\
+                            x_1, x_2 &\geq 0
+                            \end{align}\)
+                        </li>
+                        <li class="note-item" style="list-style: none">
+                            \(\begin{alignat*}{3}
+                            \text{Multiplier}\qquad& \text{Inequality}&&\\
+                            y_1\qquad& x_1&&\leq 200 \\
+                            y_2\qquad& x_2 &&\leq 300 \\
+                            y_3\qquad& x_1 + x_2 &&\leq 400 \\
+                            \end{alignat*}\)
+                        </li>
+                        <li class="note-item" style="list-style: none">
+                            \((y_1 + y_3)x_1 + (y_2 + y_3)x_2 ≤ 200y_1 + 300y_2 + 400y_3\)
+                        </li>
+                        <li class="note-item" style="list-style: none">
+                            \(
+                            x_{1}+6 x_{2} \leq 200 y_{1}+300 y_{2}+400 y_{3} \quad \text { if } \quad
+                            \left\{\begin{array}{c}{y_{1}, y_{2}, y_{3} \geq 0} \\ {y_{1}+y_{3} \geq 1} \\ {y_{2}+y_{3}
+                            \geq
+                            6}\end{array}\right\}
+                            \)
+                        </li>
+                        <li class="note-item" style="list-style: none">
+                            So the initial problem has a <i>dual</i> minimization problem:<br><br>
+                            \(
+                            \begin{array}{c}{\min 200 y_{1}+300 y_{2}+400 y_{3}} \\ {y_{1}+y_{3} \geq 1} \\ {y_{2}+y_{3}
+                            \geq 6}
+                            \\ {y_{1}, y_{2}, y_{3} \geq 0}\end{array}
+                            \)
+                        </li>
+                    </ul>
+                </li>
+                <li class="note-item">
+                    Dual feasible values \(\geq\) Primal feasible values
+                </li>
+                <li class="note-item">
+                    The optima for dual and primal coincide
+                </li>
+                <li class="note-item">
+                    <img alt="Figure Cannot Be Displayed" src="../../assets/img/Notes/Alg%20figure%207.9.png">
+                </li>
+                <li class="note-item">
+                    Relation between Dual and Primal: <br>
+                    \(
+                    \begin{array}{c}{\text { Primal LP: }} \\ { \text {max } \mathbf{c}^{T} \mathbf{x}} \\
+                    {\mathbf{A} \mathbf{x} \leq \mathbf{b}} \\ {\quad\mathbf{x} \geq 0}\end{array}
+                    \qquad
+                    \begin{array}{c}{\text { Dual LP: }} \\ {\text { min } \mathbf{y}^{T} \mathbf{b}} \\
+                    {\mathbf{y}^{T} \mathbf{A} \geq \mathbf{c}^{T}} \\ {\quad\mathbf{y} \geq 0}\end{array}
+                    \)
+                </li>
+                <li class="note-item"><b>Duality theorem</b> <i>If a linear program has a bounded optimum, then so does
+                    its dual, and
+                    the
+                    two optimum values coincide</i></li>
+                <li class="note-item">The dual of the max-flow problem is the min-cut problem</li>
+            </ul>
+        </li>
     </ul>
 </div>
-
-<!-- Footer -->
-<iframe class="footer-frame" src="../../assets/frames/footer.html"></iframe>
 
 <!-- Bootstrap core JavaScript -->
 <script src="../../assets/vendor/jquery/jquery.min.js"></script>

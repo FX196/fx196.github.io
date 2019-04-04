@@ -154,12 +154,6 @@ div.resume-body {
     font-size: 0.9em;
 }
 
-iframe.p5canvas{
-    width: 320px;
-    height: 32git0px;
-    overflow: hidden;
-}
-
 ul {
     padding: 0;
     list-style-type: none;
@@ -226,6 +220,12 @@ iframe {
     border-width: 0;
     height: 100vh;
     width: 100vw;
+}
+
+iframe.p5canvas{
+    width: 320px;
+    height: 320px;
+    overflow: hidden;
 }
 
 .section-heading {

@@ -154,6 +154,23 @@ div.resume-body {
     font-size: 0.9em;
 }
 
+div.canvas-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #f5f5f5;
+}
+
+div:hover .canvas-overlay {
+    opacity: 0.5;
+}
+
 ul {
     padding: 0;
     list-style-type: none;
@@ -222,7 +239,7 @@ iframe {
     width: 100vw;
 }
 
-iframe.p5canvas{
+iframe.p5canvas {
     width: 320px;
     height: 320px;
     overflow: hidden;

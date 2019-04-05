@@ -12,9 +12,9 @@ function draw() {
 
     var x = map(noise(t), 0, 1, 40, 280);
     var y = map(noise(t+5), 0, 1, 40, 280);
-    var r = 255 * map(noise(t+10), 0, 1, 0.5, 1);
-    var g = 255 * map(noise(t+15), 0, 1, 0.5, 1);
-    var b = 255 * map(noise(t+20), 0, 1, 0.5, 1);
+    var r = 255 * map(noise(t+10), 0, 1, 0.6, 1);
+    var g = 255 * map(noise(t+15), 0, 1, 0.6, 1);
+    var b = 255 * map(noise(t+20), 0, 1, 0.6, 1);
 
     noStroke();
     fill(r, g, b);

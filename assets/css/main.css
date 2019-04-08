@@ -188,6 +188,10 @@ div.demo-grid{
     min-width: 320px;
 }
 
+div.demo-disc{
+    margin-left: 20px;
+}
+
 ul {
     padding: 0;
     list-style-type: none;

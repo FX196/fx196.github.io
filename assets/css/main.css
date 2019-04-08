@@ -30,6 +30,10 @@ p.original-font {
     font-size: 16px;
 }
 
+div.linkshare-image{
+    display: none;
+}
+
 .skillbar {
     position: relative;
     display: block;

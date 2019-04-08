@@ -25,6 +25,11 @@ h6 {
     font-family: 'Quattrocento', serif;
 }
 
+p.original-font {
+    font-family: 'Quattrocento', serif;
+    font-size: 16px;
+}
+
 .skillbar {
     position: relative;
     display: block;
@@ -169,6 +174,14 @@ div.canvas-overlay {
 
 div:hover .canvas-overlay {
     opacity: 0.5;
+}
+
+div.demo-grid{
+    width: 400px;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-width: 320px;
 }
 
 ul {

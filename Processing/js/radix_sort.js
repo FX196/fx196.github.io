@@ -13,12 +13,12 @@ function zeroArray(size) {
 }
 
 function shuffleArray(array) {
-    var i = 0, j = 0, temp = null
+    let i, j = 0, temp;
 
     for (i = array.length - 1; i > 0; i -= 1) {
-        j = Math.floor(Math.random() * (i + 1))
-        temp = array[i]
-        array[i] = array[j]
+        j = Math.floor(Math.random() * (i + 1));
+        temp = array[i];
+        array[i] = array[j];
         array[j] = temp
     }
 }
@@ -62,11 +62,10 @@ function plotArray(arr) {
     background(0);
     translate(width / 2, height / 2);
     stroke(255);
-    let max = arr.length - 1;
     let delta = TWO_PI / arr.length;
     for (let i = 0; i <= arr.length; i++) {
         let a = i * delta;
-        let r = height * 0.4 * (1 - Math.abs(i / max - arr[i]) / arr.length);
+        let r = height * 0.4 * (1 - (Math.abs(i - arr[i]) / arr.length));
         let x = r * cos(a);
         let y = r * sin(a);
         point(x, y);

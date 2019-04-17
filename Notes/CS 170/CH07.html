@@ -34,7 +34,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137822561-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'UA-137822561-1');
@@ -232,6 +236,19 @@
                     the
                     two optimum values coincide</i></li>
                 <li class="note-item">The dual of the max-flow problem is the min-cut problem</li>
+            </ul>
+        </li>
+        <li class="note-block">
+            <h3>Bipartite Matching</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    Match vertices in bipartite graphs / find set of edges \(M\) such that each vertex is adjacent to at
+                    most 1 edge in \(M\) and \(M\) has maximum size
+                </li>
+                <li class="note-item">
+                    <i>Alternating paths</i>: paths that has edges alternating between \(M\) and \(E \setminus M\)
+                </li>
             </ul>
         </li>
     </ul>

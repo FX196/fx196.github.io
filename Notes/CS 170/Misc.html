@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>TITLE</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom fonts for this template -->
+    <link href="../../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
+          type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+          rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Quattrocento" rel="stylesheet">
+    
+    <!-- MathJax Import -->
+    <script async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
+            type="text/javascript">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <script language="JavaScript" src="../../assets/js/main.js" type="text/javascript"></script>
+    
+    <script language="JavaScript" src="../../assets/js/cs170.js" type="text/javascript"></script>
+    
+    <!-- Custom styles for this template -->
+    <link href="../../assets/css/main.css" rel="stylesheet">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137822561-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-137822561-1');
+    </script>
+
+
+</head>
+<body>
+
+<div class="linkshare-image">
+    <img src="../../assets/img/meta-logo.jpeg" alt="unable to display image">
+</div>
+<!-- Header and Nav Bar -->
+<iframe id="header-frame" scrolling="no" src="../../assets/frames/header.html"></iframe>
+
+
+<!-- Main Content -->
+<h2 align="center" class="notes-title" style="padding-bottom: 20px">Convex Optimization</h2>
+
+<div class="container note-section">
+    <ul>
+        <li class="note-block">
+            <h3>Day Trading</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item" style="list-style: none">
+                    Setup: <br>
+                    \(
+                    \begin{align*}
+                    \text{Time} &\quad& \text{choice 1} &\quad& \text{choice 2} &\quad& \cdots &\quad& \text{choice n}\\
+                    1 && x^{(1)}_1, l^{(1)}_1 && x^{(1)}_2, l^{(1)}_2 && \cdots && x^{(1)}_n, l^{(d)}_n\\
+                    2 && x^{(2)}_1, l^{(2)}_1 && x^{(2)}_2, l^{(2)}_2 && \cdots && x^{(2)}_n, l^{(d)}_n\\
+                    \vdots && \ddots \quad && \ddots \quad && \ddots && \vdots \qquad \\
+                    t && x^{(t)}_1, l^{(t)}_1 && x^{(t)}_2, l^{(t)}_2 && \cdots && x^{(t)}_n, l^{(d)}_n\\
+                    \vdots && \ddots \quad && \ddots \quad && \ddots && \vdots \qquad \\
+                    T && x^{(T)}_1, l^{(T)}_1 && x^{(T)}_2, l^{(T)}_2 && \cdots && x^{(T)}_n, l^{(d)}_n\\
+                    
+                    \end{align*}
+                    \)<br>
+                    Conditions:
+                    \(
+                    \forall t, x^{(t)}_i \geq 0; \\
+                    \sum \limits_{i=1}^n x^{(t)}_i = 1;
+                    \)
+                </li>
+                <li class="note-item">
+                    At step \(t\) the algorithm has loss \(\sum \limits_{i=1}^n x^{(t)}_i \cdot l^{(t)}_i\)
+                </li>
+                <li class="note-item">
+                    \(l^{(t)}_i\) is unknown ahead of time
+                </li>
+                <li class="note-item">
+                    <i>Regret</i>: actual performance minus best fixed strategy w/ hindsight <br>
+                    \(R_T = [\sum \limits_{t=1}^T \sum \limits_{i=1}^n x^{(i)}_t l^{(i)}_t] - [\min \limits_{i=1\cdots
+                    n} \sum \limits_{t=1}^T l^{(t)}_i]\) <br>
+                    Comparing against someone who knew everything but is only able to make a fixed choice
+                </li>
+            </ul>
+        </li>
+        <li class="note-block">
+            <h3>Multiplicative Weights </h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    Stores weights \(w^{(t)}_i\) initialized to 1
+                </li>
+                <li class="note-item">
+                    parameterized by \(0<\epsilon<\frac{1}{2}\)
+                </li>
+                <li class="note-item">
+                    update: \(w^{(t+1)}_i = (1-\epsilon)^{l^{(t)}_i} \) <br>
+                    update penalizes weights that generate loss
+                </li>
+                <li class="note-item">
+                    Guarantees \(R_T \leq O(\sqrt{T\log n})\) <br>
+                    And \(\frac{R_T}{T} \leq O(\sqrt{\frac{\log n}{T}})\), \(\frac{R_T}{T} \rightarrow 0\) as \(T
+                    \rightarrow \infty\)
+                </li>
+            </ul>
+        </li>
+    
+    </ul>
+</div>
+
+<!-- Footer -->
+<iframe class="footer-frame" src="../../assets/frames/footer.html"></iframe>
+
+<!-- Bootstrap core JavaScript -->
+<script src="../../assets/vendor/jquery/jquery.min.js"></script>
+<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="../../assets/js/clean-blog.min.js"></script>
+
+</body>
+</html>

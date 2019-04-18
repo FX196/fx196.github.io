@@ -56,19 +56,52 @@
 
 
 <!-- Main Content -->
-<h2 align="center" class="notes-title" style="padding-bottom: 20px">TITLE</h2>
+<h2 align="center" class="notes-title" style="padding-bottom: 20px">Bayes' Nets</h2>
 
 <div class="container note-section">
     <ul>
         <li class="note-block">
-            <h3>TITLE</h3>
+            <h3>Probability Models</h3>
             <hr class="note-line">
             <ul class="note-list">
                 <li class="note-item">
-                    Content
+                    naive: specifies a probability for every possible world \(\rightarrow\) joint distribution of every
+                    possibility <br>
+                    exponential in \(n\) number of variables
+                </li>
+                <li class="note-item">
+                    Independence: joint distribution = product of marginal distributions<br>
+                    \(P(x, y) = P(x) P(y)\) or \(P(x|y) = P(x)\)<br>
+                    linear instead of exponential
+                </li>
+                <li class="note-item">
+                    Independence is rare, conditional independence is more common
+                </li>
+                <li class="note-item">
+                    Conditional Independence: <br>
+                    \(P(X, Y | Z) = P(X|Z)P(Y|Z)\)
                 </li>
             </ul>
         </li>
+        
+        <li class="note-block">
+            <h3>Bayes' Nets</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    Describing complex joint distributions with simple, local distributions (conditional probabilities
+                </li>
+                <li class="note-item">
+                    Nodes: variables with domains
+                </li>
+                <li class="note-item">
+                    Arcs: interactions encoding conditional dependence
+                </li>
+                <li class="note-item">
+                    <i>shielding</i>: when \(X \rightarrow Y \rightarrow Z\), \(Z\) is shielded from \(X\) by \(Y\)<br>
+                    - since knowing \(X\) won't give information on \(Z\) once \(Y\) is known
+                </li>
+            </ul>
     
     </ul>
 </div>

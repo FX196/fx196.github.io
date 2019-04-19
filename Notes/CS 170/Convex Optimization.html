@@ -113,10 +113,10 @@
                     Stores weights \(w^{(t)}_i\) initialized to 1
                 </li>
                 <li class="note-item">
-                    parameterized by \(0<\epsilon<\frac{1}{2}\)
+                    parameterized by \(0<\varepsilon<\frac{1}{2}\)
                 </li>
                 <li class="note-item">
-                    update: \(w^{(t+1)}_i = (1-\epsilon)^{l^{(t)}_i} \) <br>
+                    update: \(w^{(t+1)}_i = (1-\varepsilon)^{l^{(t)}_i} \) <br>
                     update penalizes weights that generate loss
                 </li>
                 <li class="note-item">
@@ -131,40 +131,53 @@
                     Regret bound:<br>
                     \(\begin{align*}
                     \sum \limits_{t=1}^T \sum \limits_{i=1}^n x^{(i)}_t l^{(i)}_t &\quad \leq &\min \limits_{x^*}\sum
-                    \limits_{t=1}^T \sum \limits_{i=1}^n x^*_t l^{(i)}_t &\quad+ \epsilon T + \frac{\ln n}{\epsilon} \\
+                    \limits_{t=1}^T \sum \limits_{i=1}^n x^*_t l^{(i)}_t &\quad+ \varepsilon T + \frac{\ln
+                    n}{\varepsilon} \\
                     \text{loss of algorithm} && \text{offline optimum} & \qquad \text{regret}
                     \end{align*}\) <br>
                     Where \(x^*\) is a fixed strategy
                 </li>
             </ul>
         </li>
-    
+        
         <li class="note-block">
             <h3>Multiplicative Weights Analysis</h3>
             <hr class="note-line">
             <ul class="note-list">
                 <li class="note-item">
-                    Assume \(l \in [0,1], \epsilon \in [0, \frac{1}{2}\)
+                    Assume \(l \in [0,1], \varepsilon \in [0, \frac{1}{2}\)
                 </li>
                 <li class="note-item">
                     Definitions: <br>
                     \(L_t = \sum \limits_{i=1}^n x^{(i)}_t l^{(i)}_t\); loss at time \(t\) <br>
                     \(L^* = \min \limits_{i} \sum \limits_{t=1}^T l^{(t)}_i\); offline optimum <br>
-                    \(\epsilon T + \frac{\ln n}{\epsilon}\); regret <br>
+                    \(\varepsilon T + \frac{\ln n}{\varepsilon}\); regret <br>
                     \(W_t = \sum \limits_{i=1}^n w^{(t)}_i\); total weight at time \(t\)
                 </li>
                 <li class="note-item">
                     Lemma 1:<br>
-                    \(W_{t+1} \geq (1-\epsilon)^{L^*}\) <br>
+                    \(W_{t+1} \geq (1-\varepsilon)^{L^*}\) <br>
                     Proof: <br>
-                    \(w^{(t+1)}_i = (1-\epsilon)^{l^{(1)}_i + l^{(2)}_i + l^{(3)}_i \cdots l^{(T)}_i}\) <br>
+                    \(w^{(t+1)}_i = (1-\varepsilon)^{l^{(1)}_i + l^{(2)}_i + l^{(3)}_i \cdots l^{(T)}_i}\) <br>
                     \(W_t \geq w^{(t)}_i, \forall i\) <br>
                     \(L^* = \sum l^{(1)}_i \cdots l^{(T)}_i\) for some \(i\)
-                    
+                
                 </li>
                 <li class="note-item">
                     Lemma 2:<br>
-                    \(W_{t+1} \leq n \cdot \prod \limits_{t=1}^T (1-\epsilon L_t)\)
+                    \(W_{t+1} \leq n \cdot \prod \limits_{t=1}^T (1-\varepsilon L_t)\) <br>
+                    Proof: <br>
+                    \(W_1 = n\) since all weights are initialized as 1 <br>
+                    Claim that \(W_{t+1} \leq W_t \cdot (1-\varepsilon L_t)\) <br>
+                    \(\begin{align*}
+                    W_{t+1} &= \sum w_i^{(t+1)} = \sum \limits_{i=1}^{n} w_{i}^{(t)}
+                    \cdot(1-\varepsilon)^{\ell_{i}^{(t)}} \\
+                    &= W_{t} \sum_{i=1}^{n} x_{i}^{(t)} \cdot(1-\varepsilon)^{\ell_{i}^{(t)}} \\
+                    &\leq W_{t} \sum_{i=1}^{n} x_{i}^{(t)}\left(1-\varepsilon \cdot l_{i}^{( t )}\right) \\
+                    &=W_{t} \cdot\left(\sum_{i=1}^{n} x_{i}^{(t)}-\sum_{i=1}^{n} \varepsilon x_{i}^{t} l_{i}^{(t)}\right) \\
+                    &=W_t \cdot (1-\varepsilon L_t)
+                    \end{align*}\)
+                
                 </li>
             </ul>
         </li>

@@ -6,6 +6,7 @@ let f;
 let score;
 let h;
 let w;
+let dead;
 
 
 function setup() {
@@ -20,25 +21,38 @@ function setup() {
     head.setDir(0, 1);
     frameRate(10);
     textFont('Helvetica');
-
+    dead = false;
+    for(let i=0;i<5;i++){
+        tail.update();
+    }
 }
 
 function draw() {
     background(0);
-    f.show();
     //textSize(20);
 
 
-    if ((f.x === head.x) && (f.y === head.y)) {
-        lengthen();
-        f = new Food();
+    if (!dead) {
+        if ((f.x === head.x) && (f.y === head.y)) {
+            lengthen();
+            f = new Food();
+        }
+        if (checkDead() === true) {
+            dead = true;
+        }
+        f.show();
+        tail.update();
+        head.show();
+        rect(-1, height - footer_height, width + 1, footer_height);
+        fill(0);
+        textSize(20);
+        text("Score: " + score, 10, height - footer_height + 10, 200, 30);
+    } else {
+        head.show();
+        textSize(60);
+        text("DEAD", width / 2-100, height / 2-100, 200, 200);
+        noLoop();
     }
-    tail.update();
-    head.show();
-    rect(-1, height - footer_height, width + 1, footer_height);
-    fill(0);
-    textSize(20);
-    text("Score: " + score, 10, height - footer_height + 10, 200, 30);
 }
 
 function lengthen() {
@@ -52,6 +66,10 @@ function lengthen() {
     tail = t;
 
     score += 1;
+}
+
+function checkDead() {
+    return head.next.next.checkHasSnake(head.x, head.y);
 }
 
 
@@ -71,6 +89,7 @@ function keyPressed() {
             break;
         case 32:
             console.log(f.x, f.y, head.x, head.y);
+            console.log(checkDead());
             break;
     }
 }
@@ -127,14 +146,14 @@ function SnakeBlock() {
         }
     };
 
-    this.getPositions = function () {
-        let pos = {x: this.x, y: this.y};
-        if (this.next) {
-            return [pos] + this.next.getPositions()
+    this.checkHasSnake = function (x, y) {
+        if (this.x === x && this.y === y) {
+            return true;
+        } else if (this.next == null) {
+            return false;
         } else {
-            return [pos]
+            return this.next.checkHasSnake(x, y);
         }
-
     }
 
 

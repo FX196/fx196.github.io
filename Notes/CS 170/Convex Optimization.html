@@ -61,11 +61,10 @@
 <div class="container note-section">
     <ul>
         <li class="note-block">
-            <h3>Day Trading</h3>
+            <h3>Problem Setup</h3>
             <hr class="note-line">
             <ul class="note-list">
                 <li class="note-item" style="list-style: none">
-                    Setup: <br>
                     \(
                     \begin{align*}
                     \text{Time} &\quad& \text{choice 1} &\quad& \text{choice 2} &\quad& \cdots &\quad& \text{choice n}\\
@@ -174,7 +173,8 @@
                     \cdot(1-\varepsilon)^{\ell_{i}^{(t)}} \\
                     &= W_{t} \sum_{i=1}^{n} x_{i}^{(t)} \cdot(1-\varepsilon)^{\ell_{i}^{(t)}} \\
                     &\leq W_{t} \sum_{i=1}^{n} x_{i}^{(t)}\left(1-\varepsilon \cdot l_{i}^{( t )}\right) \\
-                    &=W_{t} \cdot\left(\sum_{i=1}^{n} x_{i}^{(t)}-\sum_{i=1}^{n} \varepsilon x_{i}^{t} l_{i}^{(t)}\right) \\
+                    &=W_{t} \cdot\left(\sum_{i=1}^{n} x_{i}^{(t)}-\sum_{i=1}^{n} \varepsilon x_{i}^{t}
+                    l_{i}^{(t)}\right) \\
                     &=W_t \cdot (1-\varepsilon L_t)
                     \end{align*}\)
                 </li>
@@ -182,22 +182,110 @@
                     From lemmas 1 and 2: <br>
                     \(\begin{align*}
                     (1-\varepsilon)^{L^*} &\leq n \prod\limits_{t=1}^{T}\left(1-\varepsilon L_{t}\right) \\
-                    \ln (1-\varepsilon)^{L^*} &\leq \ln \left(n \prod_{t=1}^{T}\left(1-\varepsilon L_{t}\right)\right) \\
+                    \ln (1-\varepsilon)^{L^*} &\leq \ln \left(n \prod_{t=1}^{T}\left(1-\varepsilon L_{t}\right)\right)
+                    \\
                     L^{*} \ln (1-\varepsilon) &\leq \ln n+\sum_{t=1}^{T} \ln \left(1-\varepsilon L_{t}\right)
                     \end{align*}\)
                     <!--Finish Proof TODO-->
                 </li>
             </ul>
         </li>
+        
         <li class="note-block">
             <h3>Multiplicative Weights: More General Losses</h3>
             <hr class="note-line">
             <ul class="note-list">
                 <li class="note-item">
-                
+                    TODO
                 </li>
             </ul>
         </li>
+        
+        <li class="note-block">
+            <h3>Follow the Leader</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    A more general case / parent of MW
+                </li>
+                <li class="note-item">
+                    Setup: <br>
+                    \(\begin{align*}
+                    \text{Time} &\quad& \text{Algorithm} &\quad& \text{Loss} &\quad& \text{Loss of Algorithm} \\
+                    t=1 && x^{(1)} \in K && f_1:K \rightarrow R && f_1(x^{(1)}) \\
+                    t=2 && x^{(2)} \in K && f_2:K \rightarrow R && f_2(x^{(2)}) \\
+                    \vdots && \vdots && \vdots && \vdots \\
+                    \end{align*}\)
+                </li>
+                <li class="note-item">
+                    at time t \( x^{(t)} = \arg\min\limits_{x \in K} f_{1}(x)+\ldots f_{t-1}(x)\)
+                </li>
+                <li class="note-item">
+                    does badly in an interesting way <br>
+                    keeps changing its mind and choosing sub-optimal choices
+                </li>
+                <li class="note-item">
+                    Regret can be bounded in with respect to how much the algorithm changes its mind
+                </li>
+            </ul>
+        </li>
+        
+        <li class="note-block">
+            <h3>FTL Analysis</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    Theorem: \(R_T \leq \sum\limits_{t=1}^{T} f_{t}\left(x^{(t)}\right)-f_{t}\left(x^{(t+1)}\right)\)
+                    <br>
+                    i.e. bounded by how much the loss function changes
+                </li>
+                <li class="note-item">
+                    Proof: Induction on T <br>
+                    \(\sum\limits_{t=1}^{T} f_{t}\left(x^{(t+1)}\right) \leq \min _{x \in \Delta} \sum\limits_{t=1}^{T}
+                    f_{t}(x)\)
+                    <br>
+                    base case: t=1, by definition <br>
+                    assume true for t, prove for t+1 <br>
+                    \(\begin{align*}
+                    \sum_{t=1}^{T+1} f_{t}\left(x^{(t+1)}\right) &=f_{T+1}\left(x^{(T+2)}\right)+\sum_{t=1}^{T+1}
+                    f_{t}\left(x^{(t+1)}\right) \\
+                    & \leq f_{T+1}\left(x^{(T+2)}\right)+\sum_{t=1}^{T} f_{t}\left(x^{(T+2)}\right) \\
+                    & = \sum_{t=1}^{T+1} f_{t}\left(x^{(T+2)}\right)
+                    \end{align*}\)
+                </li>
+            </ul>
+        </li>
+        
+        <li class="note-block">
+            <h3>Follow the Regularized Leader</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    define a function \(R: K \rightarrow R\)
+                </li>
+                <li class="note-item">
+                    Algorithm: \(x^{(t)}=\arg\min\limits_{x \in K} f_{1}(x)+ \cdots +f_{t-1}(x)+R(x)\)
+                </li>
+                <li class="note-item">
+                    Pick an \(R\) that has an unique minimum and is very smooth
+                </li>
+                <li class="note-item">
+                    New regret bound: <br>
+                    \(\sum_{t=1}^{T} f_{t}\left(x^{(t)}\right)-\sum_{t=1}^{T} f_{t}(x)
+                    \leq\left(\sum_{t=1}^{T}
+                    f_{t}\left(x^{(t)}\right)-f_{t}\left(x^{(t+1)}\right)\right)+R(x)-R\left(x^{(1)}\right)\)
+                    <br>
+                    i.e. \(R_T \leq \left(\sum_{t=1}^{T}
+                    f_{t}\left(x^{(t)}\right)-f_{t}\left(x^{(t+1)}\right)\right)+\max _{x \in K}
+                    R(x)-R\left(x^{(1)}\right) \)
+                </li>
+                <li class="note-item">
+                    \(R\) should be spread out to fight the tendency of \(x\) to be very concentrated <br>
+                    smaller if distribution is spread out, larger if distribution is concentrated
+                </li>
+            </ul>
+        </li>
+    
     
     </ul>
 </div>

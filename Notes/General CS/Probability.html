@@ -59,12 +59,13 @@
                     \(\ P(x,y) = P(x|y) \cdot P(y) = P(y|x) \cdot P(x) \)
                 </li>
                 <li class="note-item">
-                    Chain Rule: <br>
-                    \( \begin{align}
-                    P(X_4, X_3, X_2, X_1) &= P(X_4 | X_3 X_2, X_1) \cdot P(X_3, X_2, X_1) \\
-                    &= P(X_4 | X_3 X_2, X_1) \cdot P(X_3 | X_2, X_1) \cdot P( X_2, X_1)\\
-                    &= P(X_4 | X_3 X_2, X_1) \cdot P(X_3 | X_2, X_1) \cdot P( X_2 | X_1) \cdot P(X_1)
-                    \end{align}\)
+                    Chain Rule:
+                    \(
+                    P(X_4, X_3, X_2, X_1) \\
+                    = P(X_4 | X_3 X_2, X_1) \cdot P(X_3, X_2, X_1) \\
+                    = P(X_4 | X_3 X_2, X_1) \cdot P(X_3 | X_2, X_1) \cdot P( X_2, X_1)\\
+                    = P(X_4 | X_3 X_2, X_1) \cdot P(X_3 | X_2, X_1) \cdot P( X_2 | X_1) \cdot P(X_1)
+                    \)
                 </li>
                 <li class="note-item">
                     Bayes' Rule: <br>
@@ -72,6 +73,9 @@
                 </li>
                 <li class="note-item">
                     Union bound: \(P(A \vee B) \leq P(A) + P(B) \)
+                </li>
+                <li class="note-item">
+                    Linearity of Expectation: \(E[X + Y] = E[X] + E[Y]\)
                 </li>
             </ul>
         </li>
@@ -84,6 +88,13 @@
                     \(\qquad \forall x, y; P(x, y) = P(x) \cdot P(y)\)<br>
                     or, <br>
                     \(\qquad \forall x, y; P(x|y) = P(x) \)
+                </li>
+                <li class="note-item">
+                    If \(X, Y\) are independent, \(E[XY] = E[X]E[Y]\)
+                </li>
+                <li class="note-item">
+                    If \(X_1, X_2, \ldots\) are pairwise independent: <br>
+                    \(Var[X_1 + X_2 + \ldots] = Var[X_1] + Var[X_2] + \ldots \)
                 </li>
             </ul>
         </li>

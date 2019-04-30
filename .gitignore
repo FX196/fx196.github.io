@@ -1,4 +1,5 @@
 startbootstrap-clean-blog-gh-pages/
+*print*
 *.xml
 .idea/
 .DS_Store

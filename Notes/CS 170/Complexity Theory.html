@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Complexity Theory</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom fonts for this template -->
+    <link href="../../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
+          type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+          rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Quattrocento" rel="stylesheet">
+    
+    <!-- MathJax Import -->
+    <script async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
+            type="text/javascript">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <script language="JavaScript" src="../../assets/js/main.js" type="text/javascript"></script>
+    
+    <script language="JavaScript" src="../../assets/js/cs170.js" type="text/javascript"></script>
+    
+    <!-- Custom styles for this template -->
+    <link href="../../assets/css/main.css" rel="stylesheet">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137822561-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-137822561-1');
+    </script>
+
+
+</head>
+<body>
+
+<div class="linkshare-image">
+    <img src="../../assets/img/meta-logo.jpeg" alt="unable to display image">
+</div>
+<!-- Header and Nav Bar -->
+<iframe id="header-frame" scrolling="no" src="../../assets/frames/header.html"></iframe>
+
+
+<!-- Main Content -->
+<h2 align="center" class="notes-title" style="padding-bottom: 20px">Complexity Theory</h2>
+
+<div class="container note-section">
+    <ul>
+        <li class="note-block">
+            <h3>P and NP</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    P: solvable in polynomial time (\(O(n^k))\) <br>
+                </li>
+                <li class="note-item">
+                    NP-<i>Complete</i>, can only solve in exponential time (\(2^O(n^k)\)) <br>
+                    Solving one gives the solution to every other one
+                </li>
+                <li class="note-item">
+                    Three choices:
+                    <ul>
+                        <li>Use a known algorithm accepting the long runtime</li>
+                        <li>Use P algorithm for approximating solution</li>
+                        <li>Constrain problem to P</li>
+                    </ul>
+                </li>
+                <li class="note-item">
+                    NP: can be checked in polynomial time
+                </li>
+                <li class="note-item">
+                    If an NP-<i>Complete</i> problem is solved, everything in NP is solved <br>
+                    \(\Longrightarrow\) NP-<i>Complete</i> is at least as hard as everything else in NP
+                </li>
+            </ul>
+        </li>
+        
+        <li class="note-block">
+            <h3>Decision Problems</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    e.g.: <br>
+                    \(\begin{array}{l}
+                    {\text { 1. Given a weighted graph, what is the minimum length cycle that visits each node }}
+                    \\ {\text { exactly once? (If no such cycle exists, the minimum length is defined to be
+                    } \infty )\\ {\text { 2. Given a weighted graph and an integer } K,
+                    \text { is there a cycle that visits each node exactly }} \\
+                    {\text { once, with weight at most } K ?}\end{array}\)
+                </li>
+                <li class="note-item">
+                    If 1 can be solved, the answer can be used to solve 2
+                </li>
+            </ul>
+        </li>
+    
+        <li class="note-block">
+            <h3>Reduction</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                
+                </li>
+            </ul>
+        </li>
+    
+    </ul>
+</div>
+
+<!-- Footer -->
+<iframe class="footer-frame" src="../../assets/frames/footer.html"></iframe>
+
+<!-- Bootstrap core JavaScript -->
+<script src="../../assets/vendor/jquery/jquery.min.js"></script>
+<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="../../assets/js/clean-blog.min.js"></script>
+
+</body>
+</html>

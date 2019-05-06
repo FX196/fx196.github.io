@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <title>Complexity Theory</title>
+    <Search>Search</Search>
     
     <!-- Bootstrap core CSS -->
     <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -56,73 +56,31 @@
 
 
 <!-- Main Content -->
-<h2 align="center" class="notes-title" style="padding-bottom: 20px">Complexity Theory</h2>
+<h2 align="center" class="notes-Search" style="padding-bottom: 20px">Search</h2>
 
 <div class="container note-section">
     <ul>
         <li class="note-block">
-            <h3>P and NP</h3>
+            <h3>A*</h3>
             <hr class="note-line">
             <ul class="note-list">
                 <li class="note-item">
-                    P: solvable in polynomial time (\(O(n^k))\) <br>
-                </li>
-                <li class="note-item">
-                    NP-<i>Complete</i>, can only solve in exponential time (\(2^O(n^k)\)) <br>
-                    Solving one gives the solution to every other one
-                </li>
-                <li class="note-item">
-                    Intuitive definition of P and NP: <a href="https://www.youtube.com/watch?v=YX40hbAHx3s">Source:
-                    hackerdashery</a>
+                    Admissibility: \( \forall n, 0 \leq h(n) \leq h^*(n)\) where \(h^*(n)\) is the true forward cost
                     <br>
-                    NP: all problems that you can check for a solution in polynomial time! e.g. sudoku <br>
-                    P: all problems that you can solve in polynomial time! e.g. multiplication <br>
-                    Chess is above NP since even if we were given an answer to the best move with a certain setup,
-                    there's no way to verify it "fast"; But with sudoku, we can check if an answer is correct "fast"
+                    i.e. underestimates forward cost
                 </li>
                 <li class="note-item">
-                    Three choices for NP:
-                    <ul>
-                        <li>Use a known algorithm accepting the long runtime</li>
-                        <li>Use P algorithm for approximating solution</li>
-                        <li>Constrain problem to P</li>
-                    </ul>
+                    Consistency: \( \forall A, C; h(A) - h(C) \leq cost(A, C)\) <br>
+                    i.e. underestimates all arc costs
                 </li>
                 <li class="note-item">
-                    NP: can be checked in polynomial time
+                    Consistency implies Admissibility
                 </li>
                 <li class="note-item">
-                    If an NP-<i>Complete</i> problem is solved, everything in NP is solved <br>
-                    \(\Longrightarrow\) NP-<i>Complete</i> is at least as hard as everything else in NP
-                </li>
-            </ul>
-        </li>
-        
-        <li class="note-block">
-            <h3>Decision Problems</h3>
-            <hr class="note-line">
-            <ul class="note-list">
-                <li class="note-item">
-                    e.g.: <br>
-                    \(\begin{array}{l}
-                    {\text { 1. Given a weighted graph, what is the minimum length cycle that visits each node }}
-                    \\ {\text { exactly once? (If no such cycle exists, the minimum length is defined to be
-                    } \infty )\\ {\text { 2. Given a weighted graph and an integer } K,
-                    \text { is there a cycle that visits each node exactly }} \\
-                    {\text { once, with weight at most } K ?}\end{array}\)
+                    Tree search requires admissibility, Graph search requires consistency
                 </li>
                 <li class="note-item">
-                    If 1 can be solved, the answer can be used to solve 2
-                </li>
-            </ul>
-        </li>
-        
-        <li class="note-block">
-            <h3>Reduction</h3>
-            <hr class="note-line">
-            <ul class="note-list">
-                <li class="note-item">
-                
+                    The max of two admissible/consistent heuristics will also be admissible/consistent
                 </li>
             </ul>
         </li>

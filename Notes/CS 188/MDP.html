@@ -83,6 +83,8 @@
                     Past and present states are independent; i.e. history doesn't matter
                 </li>
             </ul>
+        </li>
+        
         <li class="note-block">
             <h3>Policies</h3>
             <hr class="note-line">
@@ -99,6 +101,7 @@
                 </li>
             </ul>
         </li>
+        
         <li class="note-block">
             <h3>Values</h3>
             <hr class="note-line">
@@ -121,6 +124,7 @@
                 </li>
             </ul>
         </li>
+        
         <li class="note-block">
             <h3>Value Iteration</h3>
             <hr class="note-line">
@@ -132,8 +136,14 @@
                     Iterate on values with \(V_{k+1}(s) = \max_a \sum \limits_{s'}T(s,a,s')[R(s,a,s') + \gamma
                     V_k(s')]\)
                 </li>
+                <li class="note-item">
+                    Policy extraction: \(\forall s \in S, \pi^*(s) = \arg\max_a Q^*(s,a)\) <br>
+                    i.e. choose the action with the maximum Q-value
+                </li>
             </ul>
         </li>
+        
+        
         <li class="note-block">
             <h3>Policy Iteration</h3>
             <hr class="note-line">
@@ -159,6 +169,26 @@
                     Policy update: \(\pi_{i+1}(s) = \text{argmax}_a \sum \limits_{s'} T(s, a, s') [R(s, a, s') + \gamma
                     V^{\pi_i}(s')]\) <br>
                     Calculate optimal action based on current values
+                </li>
+            </ul>
+        </li>
+        
+        <li class="note-block">
+            <h3>Summary</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    Value iteration: finding optimal values
+                </li>
+                <li class="note-item">
+                    Policy evaluation: finding values under a certain policy
+                </li>
+                <li class="note-item">
+                    Policy extraction: finding a policy given a set of values <br>
+                    If state values are optimal, the policy is optimal
+                </li>
+                <li class="note-item">
+                    Policy iteration: policy evaluation + policy extraction
                 </li>
             </ul>
         </li>

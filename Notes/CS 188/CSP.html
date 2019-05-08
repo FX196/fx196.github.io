@@ -71,6 +71,7 @@
                 </li>
             </ul>
         </li>
+        
         <li class="note-block">
             <h3>Backtracking Search</h3>
             <hr class="note-line">
@@ -84,8 +85,17 @@
                 <li class="note-item">
                     Return result if all constraints are satisfied, otherwise un-assign value
                 </li>
+                <li class="note-item">
+                    Fix an ordering for variables since assignments are commutative \(X_0: 1, X_1: 2 \equiv X_0: 2, X_1:
+                    1\)
+                </li>
+                <li class="note-item">
+                    Assign the current variable to a value that doesn't conflict with the previous values, if none
+                    exists, backtrack
+                </li>
             </ul>
         </li>
+        
         <li class="note-block">
             <h3>Filtering</h3>
             <hr class="note-line">
@@ -125,8 +135,12 @@
                     checks between
                     assigned and unassigned variables.
                 </li>
+                <li class="note-item">
+                    AC-3 complexity: \(O\left(e d^{3}\right)\)
+                </li>
             </ul>
         </li>
+        
         <li class="note-block">
             <h3>Ordering</h3>
             <hr class="note-line">
@@ -142,6 +156,7 @@
                 </li>
             </ul>
         </li>
+        
         <li class="note-block">
             <h3>Structure</h3>
             <hr class="note-line">
@@ -165,8 +180,12 @@
                     Instantiate a case for each of the assignments for the cut-set, then solve the remaining graph in
                     linear time.
                 </li>
+                <li class="note-item">
+                    With a cut-set of size \(c\), the complexity is now \(O\left(d^{c}(n-c) d^{2}\right)\)
+                </li>
             </ul>
         </li>
+        
         <li class="note-block">
             <h3>Iterative Improvement</h3>
             <hr class="note-line">
@@ -176,6 +195,7 @@
                     violations <b>given that other variables are unchanged</b>
                 </li>
             </ul>
+        </li>
     
     </ul>
 </div>

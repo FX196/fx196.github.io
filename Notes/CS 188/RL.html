@@ -154,6 +154,56 @@
                 </li>
             </ul>
         </li>
+        
+        <li class="note-block">
+            <h3>Approximate Q-Learning</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    Q-learning only remembers the values of q-states (not relations) and needs to store all the values
+                </li>
+                <li class="note-item">
+                    idea: use features and represent states with a feature vector
+                </li>
+                <li class="note-item">
+                    <b>feature-based representation</b> allows us to generalize learning experiences
+                </li>
+                <li class="note-item">
+                    keep a trainable weight vector
+                </li>
+                <li class="note-item">
+                    weight update: <br>
+                    \(\text {difference}=\left[R\left(s, a, s^{\prime}\right)+\gamma \max _{a^{\prime}}
+                    Q\left(s^{\prime}, a^{\prime}\right)\right]-Q(s, a)\) <br>
+                    difference: difference between sample and predicted q-value <br>
+                </li>
+                <li class="note-item">
+                    \(w_{i} \leftarrow w_{i}+\alpha \cdot \text {difference} \cdot f_{i}(s, a)\) <br>
+                    update weights after each sample
+                </li>
+            </ul>
+        </li>
+        
+        <li class="note-block">
+            <h3>Exploration and Exploitation</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    \(\epsilon\)-greedy: choose random action with probability \(\epsilon\)
+                </li>
+                <li class="note-item">
+                    exploration functions: add some value to states less seen, replace \(Q\left(s^{\prime},
+                    a^{\prime}\right)\) with \(f\left(s^{\prime}, a^{\prime}\right)\) <br>
+                    \(Q(s, a) \leftarrow(1-\alpha) Q(s, a)+\alpha \cdot\left[R\left(s, a, s^{\prime}\right)+\gamma \max
+                    _{a^{\prime}} f\left(s^{\prime}, a^{\prime}\right)\right]\)
+                </li>
+                <li class="note-item">
+                    usually, \(f(s, a)=Q(s, a)+\frac{k}{N(s, a)}\) where \(N(s, a)\) is the number of times \((s,a)\)
+                    has been seen <br>
+                    exploration term gets smaller as \(N(s,a)\) increases
+                </li>
+            </ul>
+        </li>
     
     </ul>
 </div>

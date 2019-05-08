@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <title>Bayes' Nets</title>
+    <title>Probabilistic Models</title>
     
     <!-- Bootstrap core CSS -->
     <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -56,7 +56,7 @@
 
 
 <!-- Main Content -->
-<h2 align="center" class="notes-title" style="padding-bottom: 20px">Bayes' Nets</h2>
+<h2 align="center" class="notes-title" style="padding-bottom: 20px">Probabilistic Models</h2>
 
 <div class="container note-section">
     <ul>
@@ -65,9 +65,25 @@
             <hr class="note-line">
             <ul class="note-list">
                 <li class="note-item">
+                    Aim: compute probability distributions \(P\left(Q_{1} \ldots Q_{k} | e_{1} \ldots e_{k}\right)\)
+                </li>
+                <li class="note-item">
+                    \(Q_i\): query variables, on left side of probability distribution
+                </li>
+                <li class="note-item">
+                    \(e_i\): evidence variables, on right side of probability distribution
+                </li>
+                <li class="note-item">
+                    hidden variables, in the overall joint distribution, but not in the queried distribution
+                </li>
+                <li class="note-item">
                     naive: specifies a probability for every possible world \(\rightarrow\) joint distribution of every
                     possibility <br>
                     exponential in \(n\) number of variables
+                </li>
+                <li class="note-item">
+                    Gather all rows consistent with evidence \(\rightarrow\) sum out hidden variables \(\rightarrow\)
+                    normalize
                 </li>
                 <li class="note-item">
                     Independence: joint distribution = product of marginal distributions<br>
@@ -85,7 +101,7 @@
         </li>
         
         <li class="note-block">
-            <h3>Bayes' Nets</h3>
+            <h3>Probabilistic Models</h3>
             <hr class="note-line">
             <ul class="note-list">
                 <li class="note-item">

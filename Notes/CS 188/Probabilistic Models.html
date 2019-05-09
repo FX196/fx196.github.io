@@ -25,7 +25,7 @@
     
     <script language="JavaScript" src="../../assets/js/main.js" type="text/javascript"></script>
     
-    <script language="JavaScript" src="../../assets/js/cs170.js" type="text/javascript"></script>
+    <script language="JavaScript" src="../../assets/js/cs188.js" type="text/javascript"></script>
     
     <!-- Custom styles for this template -->
     <link href="../../assets/css/main.css" rel="stylesheet">
@@ -82,8 +82,8 @@
                     exponential in \(n\) number of variables
                 </li>
                 <li class="note-item">
-                    Gather all rows consistent with evidence \(\rightarrow\) sum out hidden variables \(\rightarrow\)
-                    normalize
+                    Inference by Enumeration: Gather all rows consistent with evidence \(\rightarrow\) sum out hidden
+                    variables \(\rightarrow\) normalize
                 </li>
                 <li class="note-item">
                     Independence: joint distribution = product of marginal distributions<br>
@@ -101,11 +101,21 @@
         </li>
         
         <li class="note-block">
-            <h3>Probabilistic Models</h3>
+            <h3>Bayes' Nets (Representation)</h3>
             <hr class="note-line">
             <ul class="note-list">
                 <li class="note-item">
-                    Describing complex joint distributions with simple, local distributions (conditional probabilities
+                    <img src="../../assets/img/Notes/Example_Bayes_Net.png" alt="Image Could Not Be Found"
+                         style="height: 220px; width: 215px"><br>
+                    Example Bayes Net <br>
+                    <a href="http://inst.eecs.berkeley.edu/~cs188/sp19/">Source: CS 188</a>
+                </li>
+                <li class="note-item">
+                    Inspiration: storing all \(n\) joint distributions take \(O(d^n)\) space
+                </li>
+                <li class="note-item">
+                    Solution: describing joint distributions with simple, local distributions (conditional
+                    probabilities)
                 </li>
                 <li class="note-item">
                     Nodes: variables with domains
@@ -114,10 +124,127 @@
                     Arcs: interactions encoding conditional dependence
                 </li>
                 <li class="note-item">
+                    Nodes are independent of its ancestors given its parents
+                </li>
+                <li class="note-item">
                     <i>shielding</i>: when \(X \rightarrow Y \rightarrow Z\), \(Z\) is shielded from \(X\) by \(Y\)<br>
                     - since knowing \(X\) won't give information on \(Z\) once \(Y\) is known
                 </li>
+                <li class="note-item">
+                    Calculate the probability of a given assignment with chain rule: <br>
+                    \(P\left(X_{1}, X_{2}, \ldots, X_{n}\right)=\prod_{i=1}^{n}
+                    P\left(X_{i} | p a r e n t s\left(X_{i}\right)\right)\)
+                </li>
             </ul>
+        </li>
+        
+        <li class="note-block">
+            <h3>Bayes' Nets (Inference)</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    Eliminate variables one-by-one
+                </li>
+                <li class="note-item">
+                    Eliminating \(X\): Join (multiply together) all factors involving \(X\), then sum out \(X\)
+                </li>
+                <li class="note-item">
+                    <b>factor</b>: <i>unnormalized probability</i> <br>
+                    each factor is proportional to the corresponding conditional probability
+                </li>
+                <li class="note-item">
+                    <a href="javascript:" id="show-bayes-factor-eg">Example</a><br>
+                    <div id="bayes-factor-eg" style="display: none">
+                        We have factors (probabilities) \(P(T), P(C | T), P(S | T), P(E | C, S)\) <br>
+                        Want to find: \(P(T|+e)\) <br>
+                        Procedure: <br>
+                        <ul style="list-style: disc">
+                            <li>
+                                Join all factors with \(C\), forming \(P(C,+e | T, S)=P(C | T) \cdot P(+e | C, S)\)
+                            </li>
+                            <li>
+                                Sum out \(C\), giving \(P(+e | T, S)\)
+                            </li>
+                            <li>
+                                Join on \(S\), giving \(P(+e, S | T) = P(+e | T, S) \cdot P(S | T)\)
+                            </li>
+                            <li>
+                                Sum out \(S\) to find \(P(+e | T)\)
+                            </li>
+                            <li>
+                                \(P(+e) = \sum\limits_T P(+e | T) \cdot P(T)\), \(P(T | +e) = \frac{P(+e | T)
+                                P(T)}{P(+e)}\)
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        
+        <li class="note-block">
+            <h3>Bayes' Nets (Sampling)</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    Inspiration: direct inference is slow (NP-hard)
+                </li>
+                <li class="note-item">
+                    Solution: simply count samples
+                </li>
+                <li class="note-item">
+                    Naive: prior sampling, simply using the conditional probabilities
+                </li>
+                <li class="note-item">
+                    Rejection sampling: reject any samples inconsistent with evidence
+                </li>
+                <li class="note-item">
+                    Likelihood weighting: set evidence variables to true and assigns a weight to the sample equal to the
+                    conditional probabilities
+                </li>
+                <li class="note-item">
+                    e.g.: for the example network, we want to sample \(P(T |+c,+e)\) <br>
+                    Start with \(w=1\) <br>
+                    For \(T\), since it's not an evidence variable, sample \(t_j\) from \(P(T)\) <br>
+                    For \(C\), since it's an evidence variable, set \(C\) to true and multiply \(w\) by \(P\left(+c |
+                    t_{j}\right)\)
+                    <br>
+                    For \(S\), since not evidence, sample from \(P(S | t_j\) <br>
+                    For \(E\), since evidence, set \(E\) to true and multiply \(w\) by \(P\left(+e |+c, s_{j}\right)\)
+                </li>
+                <li class="nav-item">
+                    Gibbs sampling: randomize variable assignments, repeatedly pick one variable at a time and re-sample
+                    its assignment
+                </li>
+            </ul>
+        </li>
+        
+        <li class="note-block">
+            <h3>D-Separation</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    collider: node at which arrows collide head to head
+                </li>
+                <li class="note-item">
+                    unblocked path: path (disregarding directions) without colliders or conditioned nodes
+                </li>
+                <li class="note-item">
+                    if a collider or one of its descendants are conditioned, it no longer blocks paths
+                </li>
+                <li class="note-item">
+                    \(x\) and \(y\) are d-separated if there is no unblocked path between them
+                </li>
+                <li class="note-item">
+                    if \(x\) and \(y\) are d-separated, they are conditionally independent given the conditions
+                </li>
+                <li class="note-item">
+                    if \(x\) and \(y\) are d-connected, they are not guaranteed to be conditionally independent
+                </li>
+                <li class="note-item">
+                    <a href="http://bayes.cs.ucla.edu/BOOK-2K/d-sep.html">Source</a>
+                </li>
+            </ul>
+        </li>
     
     </ul>
 </div>

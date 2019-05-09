@@ -11,3 +11,10 @@ $(function () {
         div.fadeToggle(1000);
     });
 });
+
+$(function () {
+    let div = $('#bayes-factor-eg');
+    $('#show-bayes-factor-eg').click(function () {
+        div.fadeToggle(1000);
+    });
+});

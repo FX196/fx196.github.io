@@ -65,11 +65,82 @@
             <hr class="note-line">
             <ul class="note-list">
                 <li class="note-item">
-                    Basically a <b>time-dependent</b> bayes' net
+                    Basically a chain-like, infinite-length, <b>time-dependent</b> bayes' net
+                </li>
+                <li class="note-item">
+                    Uses a separate random variable for a field on each time-step <br>
+                    For example \(W_i\) can be the weather on day \(i\)
                 </li>
                 <li class="note-item">
                     e.g. Weather Model: <br>
                     \(W_0 \rightarrow W_1 \rightarrow W_2 \rightarrow W_3 \cdots \)
+                </li>
+                <li class="note-item">
+                    Described with initial distribution \(P(W_0)\), and <br>
+                    transition model \(P(W_{i+1} | W_{i})\)
+                </li>
+                <li class="note-item">
+                    Uses the same transition model for each time step, i.e. transition model is <b>stationary</b>
+                </li>
+                <li class="note-item">
+                    Satisfies the markov property: \(\begin{equation}
+                    W_{i+1} \perp\!\!\!\perp \left\{W_{0}, \dots, W_{i-1}\right\} | W_{i}
+                    \end{equation}\)
+                </li>
+            </ul>
+        </li>
+        
+        <li class="note-block">
+            <h3>Mini-Forward Algorithm</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    Essentially summing out as you go
+                </li>
+                <li class="note-item">
+                    \(
+                    P\left(W_{i+1}\right)=\sum_{w_{i}} P\left(W_{i+1} | w_{i}\right) P\left(w_{i}\right)
+                    \)
+                </li>
+                <li class="note-item">
+                    Stationary distribution: distribution when \(i\) goes to infinity and the distribution converges
+                </li>
+                <li class="note-item">
+                    The stationary distribution can be found by taking the eigenvector of the transition model
+                </li>
+            </ul>
+        </li>
+        
+        <li class="note-block">
+            <h3>Hidden Markov Models</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    <b>State Variables</b> \(W_i\)
+                </li>
+                <li class="note-item">
+                    <b>Evidence Variables</b> \(F_i\)
+                </li>
+                <li class="note-item">
+                    State variables are unobserved, evidence variables are observed
+                </li>
+                <li class="note-item">
+                    Example network: <br>
+                    <img src="../../assets/img/Notes/Example_HMM.png" alt="Image Could Not Be Displayed"
+                         style="width: 642px; height: 202px">
+                </li>
+                <li class="note-item">
+                    Assume transition model \(P(W_{i+1} | W_i)\) and sensor model \(P(F_i | W_i)\) stationary
+                </li>
+                <li class="note-item">
+                    Belief distribution with all evidence up to timestep \(i\) observed:
+                    \(B\left(W_{i}\right)=P\left(W_{i} | f_{1}, \ldots, f_{i}\right)\) <br>
+                    i.e. true distribution
+                </li>
+                <li class="note-item">
+                    Belief distribution with all evidence up to timestep \(i-1\) observed:
+                    \( B^{\prime}\left(W_{i}\right)=\operatorname{Pr}\left(W_{i} | f_{1}, \ldots, f_{i-1}\right) \) <br>
+                    i.e. predicted distribution
                 </li>
             </ul>
         </li>

@@ -61,6 +61,120 @@
 <div class="container note-section">
     <ul>
         <li class="note-block">
+            <h3>Naive Bayes</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    Tell if an email is ham or spam
+                </li>
+                <li class="note-item">
+                    Compute both \( P\left(Y=\operatorname{spam} | F_{1}=f_{1}, \ldots, F_{n}=f_{n}\right) \) <br>
+                    and \(P\left(Y=\text{ham} | F_{1}=f_{1}, \ldots, F_{n}=f_{n}\right)\)
+                </li>
+                <li class="note-item">
+                    Model the probability relations with a Bayes' Net: <br>
+                    <img src="../../assets/img/Notes/Example_Naive_Bayes.png" style="height: 363px; width: 446px"
+                         alt="Image Not Found">
+                </li>
+                <li class="note-item">
+                    Assumes \(\forall i \neq j, F_i \perp\!\!\!\perp F_j \mid Y\)
+                </li>
+                <li class="note-item">
+                    So \(P(Y \mid F_0, F_1, \ldots, F_n) \propto P(Y, F_0, F_1, \ldots, F_n) = P(Y) \prod\limits_{i=0}^n
+                    P(F_i \mid Y)\)
+                </li>
+                <li class="note-item">
+                    \(\begin{align*}
+                    \text {prediction}\left(f_{1}, \cdots f_{n}\right)
+                    &=\underset{y}{\operatorname{argmax}} P\left(Y=y | F_{1}=f_{1}, \ldots F_{N}=f_{n}\right) \\
+                    &=\underset{y}{\operatorname{argmax}} P(Y=y) \prod_{i=1}^{n} P\left(F_{i}=f_{i} | Y=y\right)
+                    \end{align*}\)
+                </li>
+                <li class="note-item">
+                    Generalizing to more classes: <br>
+                    \(P\left(Y, F_{1}=f_{1}, \ldots, F_{n}=f_{n}\right)=\left[ \begin{array}{c}{P\left(Y=y_{1},
+                    F_{1}=f_{1}, \ldots, F_{n}=f_{n}\right)} \\ {P\left(Y=y_{2}, F_{1}=f_{1}, \ldots,
+                    F_{n}=f_{n}\right)} \\ {\vdots} \\ {P\left(Y=y_{k}, F_{1}=f_{1}, \ldots,
+                    F_{n}=f_{n}\right)}\end{array}\right]=\left[ \begin{array}{c}{P\left(Y=y_{1}\right) \Pi_{i}
+                    P\left(F_{i}=f_{i} | Y=y_{1}\right)} \\ {P\left(Y=y_{2}\right) \Pi_{i} P\left(F_{i}=f_{i} |
+                    Y=y_{2}\right)} \\ {\vdots} \\ {P\left(Y=y_{k}\right) \Pi_{i} P\left(F_{i}=f_{i} |
+                    Y=y_{k}\right)}\end{array}\right]\)
+                </li>
+            </ul>
+        </li>
+        
+        <li class="note-block">
+            <h3>Parameter Estimation</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    How to get CPT? Parameter estimation
+                </li>
+                <li class="note-item">
+                    Assuming we have \(n\) samples \(x_i\) drawn from a distribution <i>parameterized</i> by \(\theta\)
+                </li>
+                <li class="note-item">
+                    try to find most likely \(\theta\)
+                </li>
+                <li class="note-item">
+                    Maximum Likelihood Estimation: find \(\theta\) for which the seen distribution is most likely
+                </li>
+                <li class="note-item">
+                    Assumptions: <br>
+                    \(x_i\) are iid <br>
+                    All possible \(\theta\) are equally possible before any data is seen
+                </li>
+                <li class="note-item">
+                    Likelihood \(\mathscr{L}(\theta) = P_{\theta}\left(x_{1}, \ldots, x_{N}\right)\)
+                </li>
+                <li class="note-item">
+                    Since \(x_i\) is iid, \(P_{\theta}\left(x_{1}, \ldots, x_{N}\right) = \prod\limits_i
+                    P_{\theta}(x_i)\)
+                </li>
+                <li class="note-item">
+                    Since at max value, the gradient is 0, the MLE for \(\theta\) is the \(\theta\) that satisfies
+                    \(\frac{\partial}{\partial \theta} \mathscr{L}(\theta)=0\)
+                </li>
+            </ul>
+        </li>
+        
+        <li class="note-block">
+            <h3>Maximum Likelihood for Naive Bayes</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    variables: <br>
+                    <ul style="list-style: disc">
+                        <li>\(n\) - number of words in our dictionary</li>
+                        <li>\(N\) - total number of samples, \(N_h\) number of ham samples, \(N_s\) number of spam
+                            samples
+                        </li>
+                        <li>\(F_i\) - random variable which is 1 of word \(i\) is in the email</li>
+                        <li>\(Y\) - random variable that's either ham or spam</li>
+                        <li>\(f_i^{(j)}\) - value of \(F_i\) for the \(j\)th sample</li>
+                    </ul>
+                </li>
+                <li class="note-item">
+                    Assuming that the appearance of each word depends on a Bernoulli distribution parameterized by
+                    \(\theta_i\)
+                </li>
+                <li class="note-item">
+                    \(\theta_i=P\left(F_{i}=1 | Y=h a m\right)\)
+                </li>
+                <li class="note-item">
+                    \(\theta_i = \frac{1}{N_h} \sum\limits_{j=0}^{N_h}f_i^{(j)}\) <br>
+                    i.e. the fraction of ham emails that contain word \(i\)
+                </li>
+                <li class="note-item">
+                    Laplace smoothing: at strength \(k\), assumes having seen \(k\) additional samples of each outcome
+                </li>
+                <li class="note-item">
+                    \(P_{L A P, k}(x | y)=\frac{\operatorname{count}(x, y)+k}{\operatorname{count}(y)+k|X|}\)
+                </li>
+            </ul>
+        </li>
+        
+        <li class="note-block">
             <h3>Perceptrons</h3>
             <hr class="note-line">
             <ul class="note-list">
@@ -78,7 +192,8 @@
                 <li class="note-item">
                     Weight update for multiclass: subtract feature vector from predicted class weights, add feature
                     vector to actual class weights <br>
-                    \(W \leftarrow W + d^Tf(x) \qquad \begin{cases} d_i = 1 & i=y^* \\ d_i = -1 & i=y \\ d_i = 0 & other \end{cases}\)
+                    \(W \leftarrow W + d^Tf(x) \qquad \begin{cases} d_i = 1 & i=y^* \\ d_i = -1 & i=y \\ d_i = 0 & other
+                    \end{cases}\)
                 </li>
                 <li class="note-item">
                     Bias: <br>

@@ -155,12 +155,32 @@
                 </li>
             </ul>
         </li>
-    
+        
         <li class="note-block">
             <h3>Heavy Hitters</h3>
             <hr class="note-line">
             <ul class="note-list">
                 <li class="note-item">
+                    Trivial for finding an element that appears a majority of times: <br>
+                    Two integers for keeping id and count <br>
+                </li>
+                <li class="note-item">
+                    More general case: finding all labels that occur more than \(\beta n\) times
+                </li>
+                <li class="note-item">
+                    Count-Min-Sketch: <br>
+                    parameterized by \(l, B\) <br>
+                </li>
+                <li class="note-item">
+                    With \(B = 2 / \epsilon\), \(l = \lceil\ln \frac{1}{\delta}\rceil\), estimate \(\hat a_i \leq a_i +
+                    \epsilon n\) with probability \(1-\delta\) <br>
+                    or, <br>
+                    <ul style="list-style: disc; padding-left: 16px">
+                        <li>With probability 1, contains all labels that occur more than \(tn\) times in the stream</li>
+                        <li>With probability \(1-\delta\), does not contain labels that occur less than \((t -
+                            \epsilon)n\) times
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </li>

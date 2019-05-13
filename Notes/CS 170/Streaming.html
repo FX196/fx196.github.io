@@ -182,6 +182,22 @@
                         </li>
                     </ul>
                 </li>
+                <li class="note-item">
+                    Keep \(l\) rows of hash tables with \(B\) "buckets", for each element in the stream, for each row,
+                    increment the corresponding bucket of the hash value of the element
+                </li>
+                <li class="note-item">
+                    The estimate for element \(a\) is simply the minimum of the counts in the corresponding buckets
+                </li>
+                <li class="note-item">
+                    Errors occur when collisions happen, which has a probability of \(\frac{1}{B}\) for each pair of
+                    elements
+                </li>
+                <li class="note-item">
+                    With Markov's inequality, can prove \(P(M\left[i, h_{i}(a)\right]>f_{a}+\frac{2 n}{B}) \leq
+                    \frac{1}{2}\), hence the probability of the estimate being larger than \(f_a + \frac{2n}{B}\) is
+                    less than \(\frac{1}{2^l}\)
+                </li>
             </ul>
         </li>
     </ul>

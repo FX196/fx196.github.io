@@ -92,7 +92,77 @@
         </li>
         
         <li class="note-block">
-            <h3></h3>
+            <h3>Sampling</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    Reservoir sampling: read first element, for \(i\)th element, replace remembered element with
+                    probability \(\frac{1}{i}\)
+                </li>
+                <li>
+                    Sampling \(t\) elements with replacement: run \(t\) instances in parallel
+                </li>
+                <li>
+                    Sampling \(t\) elements without replacement: reservoir of size \(t\), for \(i\)th element in stream,
+                    \(r = \operatorname{randint}(0, i)\)
+                    replace reservoir[\(r\)] with \(s_i\) if \(r < t\)
+                </li>
+            </ul>
+        </li>
+        
+        <li class="note-block">
+            <h3>Distinct Elements</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    Trivial and exact solution necessarily takes \(\Omega(n)\) space
+                </li>
+                <li class="note-item">
+                    Choose a hash function \(h: \Sigma \rightarrow [0, 1]\) <br>
+                    Compute the minimum hash value of all the elements \(\alpha\) <br>
+                    Estimate is \(\frac{1}{\alpha}\)
+                </li>
+                <li class="note-item">
+                    Accuracy (rough): <br>
+                    \(\begin{align*}
+                    P(output \leq \frac{k}{2}) &= \prod\limits_{i=1}^k P(r_i \geq \frac{2}{k}) \\
+                    &= (1-\frac{2}{k})^k \\
+                    &\leq e^{-2} \\
+                    P(output \geq 4k) &= P(\min(r_i) \leq \frac{1}{4k} \\
+                    &= P(r_1 \leq \frac{1}{4k} \vee r_2 \leq \frac{1}{4k} \vee \ldots) \\
+                    &\leq \sum_{i=1}^{k} P(r_{i} \leq \frac{1}{4 k})\\
+                    &= \frac{1}{4}
+                    \end{align*}\)
+                </li>
+                <li class="note-item">
+                    Can have estimate between \((1-\epsilon k, 1+\epsilon k)\) with high probability
+                </li>
+            </ul>
+        </li>
+        
+        <li class="note-block">
+            <h3>Hash Functions</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    Completely random functions cannot be stored
+                </li>
+                <li class="note-item">
+                    Universal Hash Family: <br>
+                    If a function \(h\) is picked at random from \(\mathcal{H}=\left\{h_{1}, \dots, h_{M}\right\}\),
+                    \(\mathcal{H}\) is universal iff \(\forall x \neq y \in \Sigma, i, j \in R, P(h(x)=i \wedge h(y)=j)
+                    = \frac{1}{|R|^2}\)
+                </li>
+            </ul>
+        </li>
+    
+        <li class="note-block">
+            <h3>Heavy Hitters</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                </li>
+            </ul>
         </li>
     </ul>
 </div>

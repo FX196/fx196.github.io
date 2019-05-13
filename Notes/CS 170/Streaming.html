@@ -135,7 +135,7 @@
                     \end{align*}\)
                 </li>
                 <li class="note-item">
-                    Can have estimate between \((1-\epsilon k, 1+\epsilon k)\) with high probability
+                    Can have estimate between \((k-\epsilon k, k+\epsilon k)\) with probability \(> 90\)
                 </li>
             </ul>
         </li>
@@ -200,6 +200,44 @@
                 </li>
             </ul>
         </li>
+        
+        <li class="note-block">
+            <h3>Memory Lower Bounds</h3>
+            <hr class="note-line">
+            <ul class="note-list">
+                <li class="note-item">
+                    "Compression Algorithm": any injective function that maps bit strings to bit strings
+                </li>
+                <li class="note-item">
+                    Injective: \(\forall x \neq y, C(x) \neq C(y)\)
+                </li>
+                <li class="note-item">
+                    Surjective: \(\forall y, \exists x, C(x) = y\)
+                </li>
+                <li class="note-item">
+                    Theorem: There is no compression algorithm \(C\) than maps all \(L\)-bit strings to \((L-1)\)-bit
+                    strings. <br>
+                    Proof: there are \(2^L\) bit strings of length \(L\), and only \(2^{L-1}\) bit strings of length
+                    \(L-1\)
+                </li>
+                <li class="note-item">
+                    If there is a deterministic and exact algorithm for distinct elements that uses \(O(\min(|\Sigma|,
+                    n)\), there is a compression algorithm that maps \(L\)-bit strings to length \(O(L)\) <br>
+                    <a href="javascript:" id="show-memory-bound-proof">Proof</a>
+                    <div id="memory-bound-proof" style="display: none">We can make \(\Sigma\) the set
+                        \(\{(0, 0), (0, 1), (1, 0), (1, 1), \ldots, (L, 0), (L, 1)\}\).
+                        For each \(i\) in range(\(L\)), insert to the algorithm \((i, b_i)\).
+                        To find \(b_i\), we can insert \((i, 0)\) and query the number of distinct elements. If the
+                        number
+                        changes, \(b_i = 1\), else \(b_i = 0\). Hence we can reconstruct the whole bit string.
+                    </div>
+                </li>
+                <li class="note-item">
+                    Same type of proof for heavy hitters
+                </li>
+            </ul>
+        </li>
+    
     </ul>
 </div>
 

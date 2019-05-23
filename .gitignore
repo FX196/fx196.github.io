@@ -1,8 +1,6 @@
 startbootstrap-clean-blog-gh-pages/
-*print*
 *.xml
 .idea/
 .DS_Store
 .commit
-resume-print.html
 .gitignore
